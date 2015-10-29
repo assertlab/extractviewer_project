@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/modelos/template.xhtml">
+
+	<ui:define name="title">
+		<h:outputText value="#{msgs.str_tela_analise_sistema}" />
+	</ui:define>
+
+	<ui:define name="content">
+
+		<f:view>
+
+			<f:event listener="#{analisesMB.carregarPagina}" type="preRenderView" />
+
+
+			<h3 class="text-center">
+				<h:outputLabel
+					value="#{msgs.str_tela_analise_sistema} -- #{analisesMB.containerRevisao.descricao}" />
+			</h3>
+
+			<ui:include src="filtro-analises.xhtml" />
+
+			<h:form id="formAnalises">
+
+				<p:messages id="mensagensAnalises" showDetail="true"
+					showSummary="false" />
+
+
+				<div class="text-right">
+
+					<p:commandLink onsuccess="PF('popupFiltroAnalises').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para filtrar a lista de análises"
+						immediate="true">
+						<h:graphicImage name="filtro.jpg" library="images" height="15" width="15"/>
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+
+					<p:commandLink action="#{analisesMB.coletarEstatisticasConclusao}"
+						onsuccess="PF('popupEstatisticasCategorias').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver as estatísticas de aplicação dos critérios de inclusão/exclusão"
+						immediate="true">
+						<h:graphicImage name="categorias.gif" library="images" height="15" width="15"/>
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasConclusao}"
+						onsuccess="PF('popupEstatisticasConclusao').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver as estatísticas de conclusão"
+						immediate="true">
+						<h:graphicImage name="conclusao.png" library="images" height="15" width="15" />
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasEtapaRevisao}"
+						onsuccess="PF('popupEstatisticasEsforcoConclusao').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver o detalhamento das estatísticas da etapa de revisão"
+						immediate="true"
+						update=":formEstatisticasEsforcoConclusao">
+						<h:graphicImage name="report.jpg" library="images" height="15" width="15" />
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasEstudosAno}"
+						onsuccess="PF('popupEstatisticasEstudosAno').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver o quantitativo de estudos por ano."
+						immediate="true"
+						update=":formEstatisticasEstudosAno">
+						<h:graphicImage name="artigos.png" library="images" height="15" width="15" />
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasAnalisesEstudosIncluidosAno}"
+						onsuccess="PF('popupEstatisticasEstudosIncluidosAno').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver o quantitativo de estudos incluídos por ano"
+						immediate="true"
+						update=":formEstatisticasEstudosIncluidos">
+						<h:graphicImage name="estudos_incluidos.png" library="images" height="15" width="15" />
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasAnalisesEstudosExcluidosAno}"
+						onsuccess="PF('popupEstatisticasEstudosExcluidosAno').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver o quantitativo de estudos excluídos por ano"
+						immediate="true"
+						update=":formEstatisticasEstudosExcluidos">
+						<h:graphicImage name="estudos_excluidos.png" library="images" height="15" width="15" />
+					</p:commandLink>
+					
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasAutoresIncluidos}"
+						onsuccess="PF('popupEstatisticasAutoresIncluidos').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver o ranking de autores das análises incluídas."
+						immediate="true"
+						update=":formEstatisticasAutoresIncluidos">
+						<h:graphicImage name="autores_incluidos.png" library="images" height="15" width="15" />
+					</p:commandLink>
+
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarEstatisticasEsforco}"
+						onsuccess="PF('popupEstatisticasEsforco').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver as estatísticas de esforço"
+						immediate="true">
+						<h:graphicImage name="scrum.png" library="images" height="15" width="15"/>
+					</p:commandLink>
+
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarTagcloudsIncluidos}"
+						onsuccess="PF('popupTagcloudIncluidos').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver a tagcloud dos estudos incluídos"
+						immediate="true">
+						<h:graphicImage name="tagcloud_incluidos.png" library="images" height="15" width="15"/>
+					</p:commandLink>
+
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarTagcloudsExcluidos}"
+						onsuccess="PF('popupTagcloudExcluidos').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver a tagcloud dos estudos excluídos"
+						immediate="true">
+						<h:graphicImage name="tagcloud_excluidos.jpg" library="images" height="15" width="15"/>
+					</p:commandLink>
+
+					<p:spacer width="15"/>
+					
+					<p:commandLink action="#{analisesMB.coletarTagcloudsGeral}"
+						onsuccess="PF('popupTagcloudGeral').show();"
+						process="@this"
+						partialSubmit="true"
+						title="Clique para ver a tagcloud de todos os estudos"
+						immediate="true">
+						<h:graphicImage name="tagcloud_geral.png" library="images" height="15" width="15"/>
+					</p:commandLink>
+
+				</div>
+
+				<p:dataTable var="analise" value="#{analisesMB.analises}"
+					rowKey="#{analise.id}" lazy="true" paginator="true" rows="20"
+					id="tableAnalises" dynamic="true"
+					rowsPerPageTemplate="10, 15,20,50,100"
+					binding="#{analisesMB.registrosDataTable}" selectionMode="single"
+					selection="#{analisesMB.containerDados}">
+
+					<p:ajax event="rowSelect"
+						listener="#{analisesMB.onRowAnaliseSelect}"
+						update="tableAnalises, btnDetalhe, btnEdicao" />
+						
+					<p:ajax event="rowUnselect"
+						listener="#{analisesMB.onRowAnaliseUnselect}"
+						update="tableAnalises, btnDetalhe, btnEdicao" />
+
+					<p:column headerText="Id" width="5%" styleClass="text-center"
+						sortBy="analise.id">
+						<h:outputText value="#{analise.id}" />
+					</p:column>
+
+					<p:column headerText="Estudo" sortBy="estudo.titulo">
+						<h:outputText value="#{analise.estudo.titulo}" />
+					</p:column>
+
+					<p:column headerText="Conferência" sortBy="estudo.busca.conferencia">
+						<h:outputText value="#{analise.estudo.busca.conferencia}" />
+					</p:column>
+
+					<p:column headerText="Ano" sortBy="estudo.busca.conferencia">
+						<h:outputText value="#{analise.estudo.busca.inicio} - #{analise.estudo.busca.fim}" />
+					</p:column>
+					<!-- 
+					<p:column headerText="Dupl." width="7%" styleClass="text-center">
+						<h:outputText value="Sim"
+							rendered="#{(not empty analise.matriz) and (not empty analise.matriz.id) and (analise.matriz.id != 0)}" />
+						<h:outputText value="Não"
+							rendered="#{(empty analise.matriz) or (empty analise.matriz.id) or (analise.matriz.id == 0)}" />
+					</p:column>
+					 -->
+
+					<p:column headerText="Incl." width="7%" styleClass="text-center"
+						sortBy="incluido">
+						<h:outputText value="#{analise.incluido}"
+							converter="boleanoConverter" />
+					</p:column>
+
+					<p:column headerText="Criterio" width="15%"
+						styleClass="text-center" sortBy="criterio.descricao">
+						<h:outputText value="#{analise.criterio.descricao}" />
+					</p:column>
+
+					<p:column headerText="Concl." width="7%" styleClass="text-center"
+						sortBy="concluido">
+						<h:outputText value="#{analise.concluido}"
+							converter="boleanoConverter" />
+					</p:column>
+					<p:column headerText="" width="4%">
+						<p:commandButton action="#{analisesMB.cancelarAlteracao}"
+							id="btnDetalhe" icon="ui-icon-document"
+							title="Clique para detalhar a análise do estudo #{analise.estudo.titulo}"
+							oncomplete="PF('popupDadosAnalise').show();"
+							disabled="#{analisesMB.containerDados.id != analise.id}"
+							update=":formDetalhe">
+							<f:setPropertyActionListener value="#{analise}"
+								target="#{analisesMB.containerDados}" />
+						</p:commandButton>
+					</p:column>
+
+					<p:column headerText="" width="4%">
+						<p:commandButton id="btnEdicao"
+							action="#{analisesMB.iniciarEdicao}"
+							icon="ui-icon-pencil"
+							title="Clique para alterar os dados da análise do estudo #{analise.estudo.titulo}"
+							oncomplete="PF('popupAlteraDadosAnalise').show();"
+							disabled="#{analisesMB.containerDados.id != analise.id}"
+							update=":formAlteracao">
+							<f:setPropertyActionListener value="#{analisesMB.containerDados}"
+								target="#{analisesMB.containerEdicaoDados}" />
+						</p:commandButton>
+					</p:column>
+
+					<f:facet name="footer">Total de #{analisesMB.analises.rowCount} Análises.</f:facet>
+
+				</p:dataTable>
+
+			</h:form>
+
+			<ui:include src="detalhamento-dados-analise.xhtml" />
+			<ui:include src="edicao-dados-analise.xhtml" />
+			<ui:include src="detalhamento-dados-analise-matriz.xhtml" />
+			<ui:include src="edicao-dados-estudo.xhtml" />
+			<ui:include src="busca-duplicados.xhtml" />
+			<ui:include src="estatisticas-conclusao.xhtml" />
+			<ui:include src="estatisticas-estudos.xhtml" />
+			<ui:include src="tagclouds.xhtml" />
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>

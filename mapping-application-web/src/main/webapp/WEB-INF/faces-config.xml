@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<!-- Erros ***************************************************************************************************** -->
+
+	<navigation-rule>
+		<from-view-id>/paginas/erros/404.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/paginas/erros/403.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>erro500</from-outcome>
+			<to-view-id>/paginas/erros/500.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sessaoExpirada</from-outcome>
+			<to-view-id>/paginas/erros/sessao_expirada.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/paginas/erros/500.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- Index ***************************************************************************************************** -->
+
+	<!-- Login ***************************************************************************************************** -->
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cadastro</from-outcome>
+			<to-view-id>/paginas/cadastro/cadastro.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ativacao</from-outcome>
+			<to-view-id>/paginas/cadastro/confirmacao-codigo-ativacao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>recuperar-senha</from-outcome>
+			<to-view-id>/paginas/cadastro/recuperacao-senha.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/paginas/admin/admin.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>revisor</from-outcome>
+			<to-view-id>/paginas/revisor/revisor.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- /Login ***************************************************************************************************** -->
+
+
+	<!-- Logout ***************************************************************************************************** -->
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/j_spring_security_logout</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- /Logout **************************************************************************************************** -->
+
+	<!-- Recuperacao Senha******************************************************************************************* -->
+
+	<navigation-rule>
+		<from-view-id>/paginas/cadastro/recuperacao-senha.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>recuperacaoSucesso</from-outcome>
+			<to-view-id>/paginas/cadastro/senha-recuperada.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- /Recuperacao Senha****************************************************************************************** -->
+
+
+	<!-- Cadastro *************************************************************************************************** -->
+
+	<navigation-rule>
+		<from-view-id>/paginas/cadastro/cadastro.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>confirmacao</from-outcome>
+			<to-view-id>/paginas/cadastro/confirmacao-dados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/paginas/cadastro/confirmacao-dados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>alterarDados</from-outcome>
+			<to-view-id>/paginas/cadastro/cadastro.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/paginas/cadastro/confirmacao-dados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>confirmacaoCodigoAtivacao</from-outcome>
+			<to-view-id>/paginas/cadastro/confirmacao-codigo-ativacao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/paginas/cadastro/confirmacao-codigo-ativacao.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>recadastrarEmail</from-outcome>
+			<to-view-id>/paginas/cadastro/confirmacao-codigo-ativacao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- /Cadastro ************************************************************************************************** -->
+
+	<!-- Revisor ************************************************************************************************** -->
+	<navigation-rule>
+		<from-view-id>/paginas/revisor/revisor.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>exibirEstudosAnalise</from-outcome>
+			<to-view-id>/paginas/revisor/analises.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>analiseEmSequencia</from-outcome>
+			<to-view-id>/paginas/revisor/analises-em-sequencia.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/paginas/revisor/analises-em-sequencia.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>exibirEstudosAnalise</from-outcome>
+			<to-view-id>/paginas/revisor/analises.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- /Revisor ************************************************************************************************** -->
+	<!-- Administração ********************************************************************************************** -->
+
+
+	<!-- /Administração ********************************************************************************************* -->
+
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+		</locale-config>
+		<message-bundle>MessageBundle</message-bundle>
+	</application>
+
+	<factory>
+		<exception-handler-factory>br.ufpe.cin.cloud.mapeamento.web.base.application.MapeamentoExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+
+	<lifecycle>
+		<phase-listener>br.ufpe.cin.cloud.mapeamento.web.controleacesso.LoginErrorPhaseListener</phase-listener>
+	</lifecycle>
+
+</faces-config>

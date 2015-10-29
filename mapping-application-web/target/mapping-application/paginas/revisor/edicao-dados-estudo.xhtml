@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Edição de Dados do Estudo" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupDadosEdicaoEstudo').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupDadosEdicaoEstudo" 
+		closable="false" maximizable="false" minimizable="false" closeOnEscape="false">
+
+		<p:ajax event="close" update=":formEdicaoEstudo, :formAlteracao" />
+
+		<h:form id="formEdicaoEstudo">
+			<p:messages id="mensagensEdicaoEstudo" showDetail="true"
+				showSummary="false" />
+
+			<p:panelGrid styleClass="vertical-align:text-top">
+
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Busca: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel value="Manual "
+							rendered="#{analisesMB.containerEstudoEdicao.busca.manual}"
+							styleClass="atencao5" />
+						<h:outputLabel value="Automatica"
+							rendered="#{not analisesMB.containerEstudoEdicao.busca.manual}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Engenho: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel
+							value="#{analisesMB.containerEstudoEdicao.busca.base.nome}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Conferência: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel
+							value="#{analisesMB.containerEstudoEdicao.busca.conferencia}"
+							rendered="#{not empty analisesMB.containerEstudoEdicao.busca.conferencia}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Período: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel
+							value="#{analisesMB.containerEstudoEdicao.busca.inicio}"
+							styleClass="atencao5" />
+						<h:outputLabel value=" a " style="font-weight:bold" />
+						<h:outputLabel
+							value="#{analisesMB.containerEstudoEdicao.busca.fim}"
+							styleClass="atencao5" />
+					</p:column>
+
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Id: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel value="#{analisesMB.containerEstudoEdicao.id}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Código: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel value="#{analisesMB.containerEstudoEdicao.codigo}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Título*: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:inputText value="#{analisesMB.containerEstudoEdicao.titulo}"
+							required="true"
+							requiredMessage="O campo título não pode ser nulo." size="89"
+							maxlength="250" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Autores*: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:inputText value="#{analisesMB.containerEstudoEdicao.autores}"
+							required="true"
+							requiredMessage="O campo autores não pode ser nulo." size="89" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Ano*: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:inputText value="#{analisesMB.containerEstudoEdicao.ano}"
+							required="true" requiredMessage="O campo ano não pode ser nulo."
+							size="5" maxlength="4" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Palavras-Chave: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:inputText
+							value="#{analisesMB.containerEstudoEdicao.palavrasChave}"
+							size="89" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Resumo*: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<p:inputTextarea rows="8" cols="90" autoResize="false"
+							value="#{analisesMB.containerEstudoEdicao.resumo}"
+							required="true"
+							requiredMessage="O campo resumo não pode ser nulo." />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Arquivo: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:inputText value="#{analisesMB.containerEstudoEdicao.arquivo}"
+							size="89" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+
+			<p class="text-center">
+
+				<p:commandButton value="Cancelar"
+					actionListener="#{analisesMB.cancelarEdicaoEstudo}"
+					onsuccess="PF('popupDadosEdicaoEstudo').hide();PF('popupAlteraDadosAnalise').show();"
+					update=":formEdicaoEstudo, :formAlteracao" process="@form"
+					immediate="true"
+					partialSubmit="true"
+					rendered="#{not analisesMB.matrizEmEdicao}" />
+
+				<p:commandButton value="Concluir"
+					actionListener="#{analisesMB.editarEstudo}"
+					update=":formEdicaoEstudo, :formAlteracao, :formAnalises:tableAnalises"
+					process="@form"
+					oncomplete="PF('popupDadosEdicaoEstudo').hide();PF('popupAlteraDadosAnalise').show();" 
+					rendered="#{not analisesMB.matrizEmEdicao}" />
+
+				<p:commandButton value="Cancelar"
+					actionListener="#{analisesMB.cancelarEdicaoEstudo}"
+					onsuccess="PF('popupDadosEdicaoEstudo').hide();PF('popupDadosAnaliseMatriz').show();"
+					process="@form"
+					immediate="true" 
+					partialSubmit="true"
+					rendered="#{analisesMB.matrizEmEdicao}" />
+				
+				<p:commandButton value="Concluir"
+					actionListener="#{analisesMB.editarEstudo}"
+					update=":formDetalheMatriz" process="@form"
+					onsuccess="PF('popupDadosEdicaoEstudo').hide();PF('popupDadosAnaliseMatriz').show();" 
+					rendered="#{analisesMB.matrizEmEdicao}" />
+
+			</p>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

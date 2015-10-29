@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css">
+
+html, body {
+ font-family: 'Arial', calibri, trebuchet ms;
+ font-size: 0.9em;
+ background: none repeat scroll 0 0 #FCFDFD;
+ border: 0 none;
+ color: #222222;
+ font-family: calibri,arial,trebuchet ms;
+ margin: 0;
+ padding: 0;
+}
+
+h3 {
+ font-size:1.5em;
+ padding: 10px 10px 5px;
+ border-bottom: 1px solid #EDEDED;
+ color: #250764;
+ font-family: trebuchet ms; 
+ margin-bottom: 20px;
+ padding-bottom: 15px;
+ text-align: left !important;
+}
+
+span {
+ font-weight: bold;   
+}
+
+p {
+ margin-top: 10px;   
+}
+
+p.center {
+ padding:10px;
+ text-align:center;   
+ font-size:1.1em;
+}
+
+p.center span {
+	color: red;
+	font-size: 1.2em;
+}
+
+ul li {
+ list-style-type:circle;   
+}
+​
+</style>
+</head>
+
+<body>
+<div>
+		        
+        <h3>Confirmação de Cadastro - Sistema Cloud Perception</h3>                  
+        
+        <p>Olá, <span>$usuario.Nome</span>!<p>
+        
+        <p>Não responda este email. O seu contato com o Cloud Perception é através do email <a href="mailto:cloudperception@gmail.com">cloudperception@gmail.com</a></p>
+
+        <p>Você acabou de realizar o cadastro no Sistema Cloud Mapping. Para que o seu procedimento de cadastro se torne válido  é necessário que você realize o login no sistema e informe o código de confirmação abaixo. 
+  <p>Caso você não tenha realizado a cadastro, pedimos que ignore esta mensagem.
+  <p>               
+        
+  <p class="center">Código de confirmação: <span>$usuario.CodigoAtivacaoEmail</span></p>
+        
+        <p>Possui alguma dúvida? Entre em contato conosco através dos nosso email <a href="mailto:cloudperception@gmail.com">cloudperception@gmail.com</a></p>                 
+        
+   <p>                        
+	</p>    
+
+</div>​​​​
+</body>
+</html>

@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#paginas#cadastro#cadastro-upe.xhtml"
+  PATH="/paginas/cadastro/cadastro-upe.xhtml" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#cadastro#cadastro-upe.xhtml:0"
+   NAME="item" PATH="/paginas/cadastro/cadastro-upe.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmacao::#paginas#cadastro#confirmacao-dados.xhtml"
+    NAME="output" PATH="/paginas/cadastro/confirmacao-dados.xhtml"
+    TARGET="rules:#paginas#cadastro#confirmacao-dados.xhtml"
+    TITLE="confirmacao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#cadastro#confirmacao-dados.xhtml"
+  PATH="/paginas/cadastro/confirmacao-dados.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#cadastro#confirmacao-dados.xhtml:0"
+   NAME="item" PATH="/paginas/cadastro/confirmacao-dados.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterarDados::#paginas#cadastro#cadastro-upe.xhtml"
+    NAME="output" PATH="/paginas/cadastro/cadastro-upe.xhtml"
+    TARGET="rules:#paginas#cadastro#cadastro-upe.xhtml"
+    TITLE="alterarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#paginas#cadastro#confirmacao-dados.xhtml:1"
+   NAME="item1" PATH="/paginas/cadastro/confirmacao-dados.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmacaoCodigoAtivacao::#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+    NAME="output"
+    PATH="/paginas/cadastro/confirmacao-codigo-ativacao.xhtml"
+    TARGET="rules:#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+    TITLE="confirmacaoCodigoAtivacao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+  PATH="/paginas/cadastro/confirmacao-codigo-ativacao.xhtml"
+  SHAPE="464,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#cadastro#confirmacao-codigo-ativacao.xhtml:0"
+   NAME="item"
+   PATH="/paginas/cadastro/confirmacao-codigo-ativacao.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="recadastrarEmail::#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+    NAME="output"
+    PATH="/paginas/cadastro/confirmacao-codigo-ativacao.xhtml"
+    TARGET="rules:#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+    TITLE="recadastrarEmail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#lista-concursos.xhtml"
+  PATH="/paginas/admin/lista-concursos.xhtml" SHAPE="32,273,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#admin#lista-concursos.xhtml:0"
+   NAME="item" PATH="/paginas/admin/lista-concursos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="novoConcurso::#paginas#admin#novo-concurso.xhtml" NAME="output"
+    PATH="/paginas/admin/novo-concurso.xhtml"
+    TARGET="rules:#paginas#admin#novo-concurso.xhtml"
+    TITLE="novoConcurso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#paginas#admin#lista-concursos.xhtml:1"
+   NAME="item1" PATH="/paginas/admin/lista-concursos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administraConcurso::#paginas#admin#administra-concursos.xhtml"
+    NAME="output" PATH="/paginas/admin/administra-concursos.xhtml"
+    TARGET="rules:#paginas#admin#administra-concursos.xhtml"
+    TITLE="administraConcurso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#novo-concurso.xhtml"
+  PATH="/paginas/admin/novo-concurso.xhtml" SHAPE="240,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#admin#novo-concurso.xhtml:0"
+   NAME="item" PATH="/paginas/admin/novo-concurso.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarCursos::#paginas#admin#lista-concursos.xhtml"
+    NAME="output" PATH="/paginas/admin/lista-concursos.xhtml"
+    TARGET="rules:#paginas#admin#lista-concursos.xhtml"
+    TITLE="listarCursos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#administra-concursos.xhtml"
+  PATH="/paginas/admin/administra-concursos.xhtml" SHAPE="256,433,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#admin#administra-concursos.xhtml:0"
+   NAME="item" PATH="/paginas/admin/administra-concursos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listaConcursos::#paginas#admin#lista-concursos.xhtml"
+    NAME="output" PATH="/paginas/admin/lista-concursos.xhtml"
+    TARGET="rules:#paginas#admin#lista-concursos.xhtml"
+    TITLE="listaConcursos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#paginas#admin#administra-concursos.xhtml:1"
+   NAME="item1" PATH="/paginas/admin/administra-concursos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administraIncricoes::#paginas#admin#opcoes-inscricoes.xhtml"
+    NAME="output" PATH="/paginas/admin/opcoes-inscricoes.xhtml"
+    TARGET="rules:#paginas#admin#opcoes-inscricoes.xhtml"
+    TITLE="administraIncricoes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#paginas#admin#administra-concursos.xhtml:2"
+   NAME="item2" PATH="/paginas/admin/administra-concursos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administraCronograma::#paginas#admin#opcoes-cronograma.xhtml"
+    NAME="output" PATH="/paginas/admin/opcoes-cronograma.xhtml"
+    TARGET="rules:#paginas#admin#opcoes-cronograma.xhtml"
+    TITLE="administraCronograma" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#opcoes-inscricoes.xhtml"
+  PATH="/paginas/admin/opcoes-inscricoes.xhtml" SHAPE="464,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#admin#opcoes-inscricoes.xhtml:0"
+   NAME="item" PATH="/paginas/admin/opcoes-inscricoes.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administraConcursos::#paginas#admin#administra-concursos.xhtml"
+    NAME="output" PATH="/paginas/admin/administra-concursos.xhtml"
+    TARGET="rules:#paginas#admin#administra-concursos.xhtml"
+    TITLE="administraConcursos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#opcoes-cronograma.xhtml"
+  PATH="/paginas/admin/opcoes-cronograma.xhtml" SHAPE="512,593,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#admin#opcoes-cronograma.xhtml:0"
+   NAME="item" PATH="/paginas/admin/opcoes-cronograma.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="administraConcursos::#paginas#admin#administra-concursos.xhtml"
+    NAME="output" PATH="/paginas/admin/administra-concursos.xhtml"
+    TARGET="rules:#paginas#admin#administra-concursos.xhtml"
+    TITLE="administraConcursos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#sociocultural#questionario-sociocultural.xhtml"
+  PATH="/paginas/sociocultural/questionario-sociocultural.xhtml"
+  SHAPE="304,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#sociocultural#questionario-sociocultural.xhtml:0"
+   NAME="item"
+   PATH="/paginas/sociocultural/questionario-sociocultural.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="avancar::#paginas#sociocultural#confirmacao-sociocultural.xhtml"
+    NAME="output"
+    PATH="/paginas/sociocultural/confirmacao-sociocultural.xhtml"
+    TARGET="rules:#paginas#sociocultural#confirmacao-sociocultural.xhtml"
+    TITLE="avancar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#confirmacao-dados-ssa1.xhtml"
+  PATH="/paginas/inscricao/confirmacao-dados-ssa1.xhtml"
+  SHAPE="240,1409,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#confirmacao-dados-ssa1.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/confirmacao-dados-ssa1.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-ssa1.xhtml" NAME="output"
+    PATH="/paginas/inscricao/inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa1.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#inscricao-realizada.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/inscricao-realizada.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-realizada.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atendimento::#paginas#atendimento#atendimento.xhtml"
+    NAME="output3" PATH="/paginas/atendimento/atendimento.xhtml"
+    TARGET="rules:#paginas#atendimento#atendimento.xhtml"
+    TITLE="atendimento" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#inscricao#inscricao-ssa1.xhtml"
+  PATH="/paginas/inscricao/inscricao-ssa1.xhtml" SHAPE="320,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#inscricao#inscricao-ssa1.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/inscricao-ssa1.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#confirmacao-dados-ssa1.xhtml"
+    NAME="output" PATH="/paginas/inscricao/confirmacao-dados-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#confirmacao-dados-ssa1.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atendimento::#paginas#atendimento#atendimento.xhtml"
+    NAME="output2" PATH="/paginas/atendimento/atendimento.xhtml"
+    TARGET="rules:#paginas#atendimento#atendimento.xhtml"
+    TITLE="atendimento" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#inscricao#inscricao-ssa2.xhtml"
+  PATH="/paginas/inscricao/inscricao-ssa2.xhtml" SHAPE="320,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#inscricao#inscricao-ssa2.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/inscricao-ssa2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#confirmacao-dados-ssa2.xhtml"
+    NAME="output" PATH="/paginas/inscricao/confirmacao-dados-ssa2.xhtml"
+    TARGET="rules:#paginas#inscricao#confirmacao-dados-ssa2.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#confirmacao-dados-ssa2.xhtml"
+  PATH="/paginas/inscricao/confirmacao-dados-ssa2.xhtml"
+  SHAPE="240,1745,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#confirmacao-dados-ssa2.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/confirmacao-dados-ssa2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-ssa2.xhtml" NAME="output"
+    PATH="/paginas/inscricao/inscricao-ssa2.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa2.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#inscricao-realizada.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/inscricao-realizada.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-realizada.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#inscricao#inscricao-ssa3.xhtml"
+  PATH="/paginas/inscricao/inscricao-ssa3.xhtml" SHAPE="320,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#inscricao#inscricao-ssa3.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/inscricao-ssa3.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#confirmacao-dados-ssa3.xhtml"
+    NAME="output" PATH="/paginas/inscricao/confirmacao-dados-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#confirmacao-dados-ssa3.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#confirmacao-dados-ssa3.xhtml"
+  PATH="/paginas/inscricao/confirmacao-dados-ssa3.xhtml"
+  SHAPE="48,1489,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#confirmacao-dados-ssa3.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/confirmacao-dados-ssa3.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-ssa3.xhtml" NAME="output"
+    PATH="/paginas/inscricao/inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa3.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#inscricao-realizada.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/inscricao-realizada.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-realizada.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#confirmacao-dados-vestibular.xhtml"
+  PATH="/paginas/inscricao/confirmacao-dados-vestibular.xhtml"
+  SHAPE="32,1489,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#confirmacao-dados-vestibular.xhtml:0"
+   NAME="item"
+   PATH="/paginas/inscricao/confirmacao-dados-vestibular.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-vestibular.xhtml"
+    NAME="output" PATH="/paginas/inscricao/inscricao-vestibular.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-vestibular.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#inscricao-realizada.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/inscricao-realizada.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-realizada.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#inscricao-vestibular.xhtml"
+  PATH="/paginas/inscricao/inscricao-vestibular.xhtml"
+  SHAPE="256,2017,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#inscricao-vestibular.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/inscricao-vestibular.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#confirmacao-dados-vestibular.xhtml"
+    NAME="output"
+    PATH="/paginas/inscricao/confirmacao-dados-vestibular.xhtml"
+    TARGET="rules:#paginas#inscricao#confirmacao-dados-vestibular.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#inscricao#inscricao-realizada.xhtml"
+  PATH="/paginas/inscricao/inscricao-realizada.xhtml"
+  SHAPE="544,1713,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#inscricao-realizada.xhtml:0" NAME="item"
+   PATH="/paginas/inscricao/inscricao-realizada.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+  PATH="/paginas/inscricao/dados-inscricao-ssa1.xhtml"
+  SHAPE="320,2273,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#dados-inscricao-ssa1.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/dados-inscricao-ssa1.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-ssa1.xhtml" NAME="output"
+    PATH="/paginas/inscricao/inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa1.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarInscricao::#paginas#inscricao#cancelamento-realizado.xhtml"
+    NAME="output2"
+    PATH="/paginas/inscricao/cancelamento-realizado.xhtml"
+    TARGET="rules:#paginas#inscricao#cancelamento-realizado.xhtml"
+    TITLE="cancelarInscricao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atualizar::#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/dados-inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+    TITLE="atualizar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output3" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#cancelamento-realizado.xhtml"
+  PATH="/paginas/inscricao/cancelamento-realizado.xhtml"
+  SHAPE="32,2849,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#cancelamento-realizado.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/cancelamento-realizado.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="inicio::#paginas#inscricao#resumo-candidato.xhtml" NAME="output"
+    PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="inicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+  PATH="/paginas/inscricao/dados-inscricao-ssa3.xhtml"
+  SHAPE="816,2337,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#dados-inscricao-ssa3.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/dados-inscricao-ssa3.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-ssa3.xhtml" NAME="output"
+    PATH="/paginas/inscricao/inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa3.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarInscricao::#paginas#inscricao#cancelamento-realizado.xhtml"
+    NAME="output1"
+    PATH="/paginas/inscricao/cancelamento-realizado.xhtml"
+    TARGET="rules:#paginas#inscricao#cancelamento-realizado.xhtml"
+    TITLE="cancelarInscricao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atualizar::#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/dados-inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+    TITLE="atualizar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output3" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#dados-inscricao-ssa2.xhtml"
+  PATH="/paginas/inscricao/dados-inscricao-ssa2.xhtml"
+  SHAPE="816,2129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#dados-inscricao-ssa2.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/dados-inscricao-ssa2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-ssa2.xhtml" NAME="output"
+    PATH="/paginas/inscricao/inscricao-ssa2.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa2.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarInscricao::#paginas#inscricao#cancelamento-realizado.xhtml"
+    NAME="output1"
+    PATH="/paginas/inscricao/cancelamento-realizado.xhtml"
+    TARGET="rules:#paginas#inscricao#cancelamento-realizado.xhtml"
+    TITLE="cancelarInscricao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atualizar::#paginas#inscricao#dados-inscricao-ssa2.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/dados-inscricao-ssa2.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa2.xhtml"
+    TITLE="atualizar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output3" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#sociocultural#confirmacao-sociocultural.xhtml"
+  PATH="/paginas/sociocultural/confirmacao-sociocultural.xhtml"
+  SHAPE="48,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#sociocultural#confirmacao-sociocultural.xhtml:0"
+   NAME="item"
+   PATH="/paginas/sociocultural/confirmacao-sociocultural.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterarDados::#paginas#sociocultural#questionario-sociocultural.xhtml"
+    NAME="output"
+    PATH="/paginas/sociocultural/questionario-sociocultural.xhtml"
+    TARGET="rules:#paginas#sociocultural#questionario-sociocultural.xhtml"
+    TITLE="alterarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-ssa3::#paginas#inscricao#inscricao-ssa3.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa3.xhtml"
+    TITLE="inscricao-ssa3" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-vest::#paginas#inscricao#inscricao-vestibular.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/inscricao-vestibular.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-vestibular.xhtml"
+    TITLE="inscricao-vest" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-transferencia::#paginas#inscricao#inscricao-transferencia.xhtml"
+    NAME="output3"
+    PATH="/paginas/inscricao/inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-transferencia.xhtml"
+    TITLE="inscricao-transferencia" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#dados-inscricao-vest.xhtml"
+  PATH="/paginas/inscricao/dados-inscricao-vest.xhtml"
+  SHAPE="560,1233,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#dados-inscricao-vest.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/dados-inscricao-vest.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-vestibular.xhtml"
+    NAME="output" PATH="/paginas/inscricao/inscricao-vestibular.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-vestibular.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarInscricao::#paginas#inscricao#cancelamento-realizado.xhtml"
+    NAME="output1"
+    PATH="/paginas/inscricao/cancelamento-realizado.xhtml"
+    TARGET="rules:#paginas#inscricao#cancelamento-realizado.xhtml"
+    TITLE="cancelarInscricao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atualizar::#paginas#inscricao#dados-inscricao-vest.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/dados-inscricao-vest.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-vest.xhtml"
+    TITLE="atualizar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output3" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#erros#404.xhtml"
+  PATH="/paginas/erros/404.xhtml" SHAPE="48,3313,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#erros#404.xhtml:0" NAME="item"
+   PATH="/paginas/erros/404.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#erros#403.xhtml"
+  PATH="/paginas/erros/403.xhtml" SHAPE="48,3313,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#erros#403.xhtml:0" NAME="item"
+   PATH="/paginas/erros/403.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#erros#500.xhtml"
+  PATH="/paginas/erros/500.xhtml" SHAPE="48,3089,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#erros#500.xhtml:0" NAME="item"
+   PATH="/paginas/erros/500.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="240,2993,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cadastro::#paginas#cadastro#cadastro-upe.xhtml" NAME="output1"
+    PATH="/paginas/cadastro/cadastro-upe.xhtml"
+    TARGET="rules:#paginas#cadastro#cadastro-upe.xhtml" TITLE="cadastro" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="ativacao::#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+    NAME="output2"
+    PATH="/paginas/cadastro/confirmacao-codigo-ativacao.xhtml"
+    TARGET="rules:#paginas#cadastro#confirmacao-codigo-ativacao.xhtml"
+    TITLE="ativacao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="questionario::#paginas#sociocultural#questionario-sociocultural.xhtml"
+    NAME="output3"
+    PATH="/paginas/sociocultural/questionario-sociocultural.xhtml"
+    TARGET="rules:#paginas#sociocultural#questionario-sociocultural.xhtml"
+    TITLE="questionario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-ssa1::#paginas#inscricao#inscricao-ssa1.xhtml"
+    NAME="output4" PATH="/paginas/inscricao/inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa1.xhtml"
+    TITLE="inscricao-ssa1" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-ssa2::#paginas#inscricao#inscricao-ssa2.xhtml"
+    NAME="output5" PATH="/paginas/inscricao/inscricao-ssa2.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa2.xhtml"
+    TITLE="inscricao-ssa2" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-ssa3::#paginas#inscricao#inscricao-ssa3.xhtml"
+    NAME="output6" PATH="/paginas/inscricao/inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa3.xhtml"
+    TITLE="inscricao-ssa3" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-vest::#paginas#inscricao#inscricao-vestibular.xhtml"
+    NAME="output7" PATH="/paginas/inscricao/inscricao-vestibular.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-vestibular.xhtml"
+    TITLE="inscricao-vest" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricao-transferencia::#paginas#inscricao#inscricao-transferencia.xhtml"
+    NAME="output8"
+    PATH="/paginas/inscricao/inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-transferencia.xhtml"
+    TITLE="inscricao-transferencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumo-ssa1::#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+    NAME="output9" PATH="/paginas/inscricao/dados-inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+    TITLE="resumo-ssa1" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumo-ssa3::#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+    NAME="output10" PATH="/paginas/inscricao/dados-inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+    TITLE="resumo-ssa3" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumo-vest::#paginas#inscricao#dados-inscricao-vest.xhtml"
+    NAME="output11" PATH="/paginas/inscricao/dados-inscricao-vest.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-vest.xhtml"
+    TITLE="resumo-vest" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumo-transferencia::#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+    NAME="output12"
+    PATH="/paginas/inscricao/dados-inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+    TITLE="resumo-transferencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="recuperar-senha::#paginas#cadastro#recuperacao-senha.xhtml"
+    NAME="output13" PATH="/paginas/cadastro/recuperacao-senha.xhtml"
+    TARGET="rules:#paginas#cadastro#recuperacao-senha.xhtml"
+    TITLE="recuperar-senha" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atendimento::#paginas#atendimento#atendimento.xhtml"
+    NAME="output14" PATH="/paginas/atendimento/atendimento.xhtml"
+    TARGET="rules:#paginas#atendimento#atendimento.xhtml"
+    TITLE="atendimento" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#cadastro#recuperacao-senha.xhtml"
+  PATH="/paginas/cadastro/recuperacao-senha.xhtml" SHAPE="320,833,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#cadastro#recuperacao-senha.xhtml:0"
+   NAME="item" PATH="/paginas/cadastro/recuperacao-senha.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="recuperacaoSucesso::#paginas#cadastro#senha-recuperada.xhtml"
+    NAME="output1" PATH="/paginas/cadastro/senha-recuperada.xhtml"
+    TARGET="rules:#paginas#cadastro#senha-recuperada.xhtml"
+    TITLE="recuperacaoSucesso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,1585,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#j_spring_security_logout"
+    NAME="output" PATH="/j_spring_security_logout"
+    TARGET="rules:#j_spring_security_logout" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#j_spring_security_logout"
+  PATH="/j_spring_security_logout" SHAPE="240,1889,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#inscricao#resumo-candidato.xhtml"
+  PATH="/paginas/inscricao/resumo-candidato.xhtml" SHAPE="624,3665,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#inscricao#resumo-candidato.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/resumo-candidato.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarSsa1::#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+    NAME="output" PATH="/paginas/inscricao/dados-inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa1.xhtml"
+    TITLE="visualizarSsa1" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarSsa2::#paginas#inscricao#dados-inscricao-ssa2.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/dados-inscricao-ssa2.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa2.xhtml"
+    TITLE="visualizarSsa2" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarSsa3::#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/dados-inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-ssa3.xhtml"
+    TITLE="visualizarSsa3" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarVestibular::#paginas#inscricao#dados-inscricao-vest.xhtml"
+    NAME="output3" PATH="/paginas/inscricao/dados-inscricao-vest.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-vest.xhtml"
+    TITLE="visualizarVestibular" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarTransferencia::#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+    NAME="output4"
+    PATH="/paginas/inscricao/dados-inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+    TITLE="visualizarTransferencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricaoSsa1::#paginas#inscricao#inscricao-ssa1.xhtml"
+    NAME="output5" PATH="/paginas/inscricao/inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa1.xhtml"
+    TITLE="inscricaoSsa1" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricaoSsa3::#paginas#inscricao#inscricao-ssa3.xhtml"
+    NAME="output6" PATH="/paginas/inscricao/inscricao-ssa3.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa3.xhtml"
+    TITLE="inscricaoSsa3" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricaoVestibular::#paginas#inscricao#inscricao-vestibular.xhtml"
+    NAME="output7" PATH="/paginas/inscricao/inscricao-vestibular.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-vestibular.xhtml"
+    TITLE="inscricaoVestibular" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="inscricaoTransferencia::#paginas#inscricao#inscricao-transferencia.xhtml"
+    NAME="output8"
+    PATH="/paginas/inscricao/inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-transferencia.xhtml"
+    TITLE="inscricaoTransferencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="alterarCadastro::#paginas#cadastro#cadastro-upe.xhtml"
+    NAME="output9" PATH="/paginas/cadastro/cadastro-upe.xhtml"
+    TARGET="rules:#paginas#cadastro#cadastro-upe.xhtml"
+    TITLE="alterarCadastro" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="questionario::#paginas#sociocultural#questionario-sociocultural.xhtml"
+    NAME="output10"
+    PATH="/paginas/sociocultural/questionario-sociocultural.xhtml"
+    TARGET="rules:#paginas#sociocultural#questionario-sociocultural.xhtml"
+    TITLE="questionario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="80,4369,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="erro500::#paginas#erros#500.xhtml"
+    NAME="output" PATH="/paginas/erros/500.xhtml"
+    TARGET="rules:#paginas#erros#500.xhtml" TITLE="erro500" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="sessaoExpirada::#paginas#erros#sessao_expirada.xhtml"
+    NAME="output1" PATH="/paginas/erros/sessao_expirada.xhtml"
+    TARGET="rules:#paginas#erros#sessao_expirada.xhtml"
+    TITLE="sessaoExpirada" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#cadastro#senha-recuperada.xhtml"
+  PATH="/paginas/cadastro/senha-recuperada.xhtml" SHAPE="624,1025,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#erros#sessao_expirada.xhtml"
+  PATH="/paginas/erros/sessao_expirada.xhtml" SHAPE="352,5937,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#atendimento#atendimento.xhtml"
+  PATH="/paginas/atendimento/atendimento.xhtml" SHAPE="624,3761,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#atendimento#atendimento.xhtml:0"
+   NAME="item" PATH="/paginas/atendimento/atendimento.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterarSsa1::#paginas#inscricao#inscricao-ssa1.xhtml"
+    NAME="output" PATH="/paginas/inscricao/inscricao-ssa1.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-ssa1.xhtml"
+    TITLE="alterarSsa1" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#admin#admin.xhtml"
+  PATH="/paginas/admin/admin.xhtml" SHAPE="624,3761,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#paginas#cadastro#cadastro-fiscal.xhtml"
+  PATH="/paginas/cadastro/cadastro-fiscal.xhtml" SHAPE="32,2529,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#cadastro#cadastro-fiscal.xhtml:0"
+   NAME="item" PATH="/paginas/cadastro/cadastro-fiscal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmacao::#paginas#cadastro#confirmacao-fiscal.xhtml"
+    NAME="output" PATH="/paginas/cadastro/confirmacao-fiscal.xhtml"
+    TARGET="rules:#paginas#cadastro#confirmacao-fiscal.xhtml"
+    TITLE="confirmacao" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paginas#cadastro#confirmacao-fiscal.xhtml"
+  PATH="/paginas/cadastro/confirmacao-fiscal.xhtml" SHAPE="240,2545,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paginas#cadastro#confirmacao-fiscal.xhtml:0"
+   NAME="item" PATH="/paginas/cadastro/confirmacao-fiscal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="cadastroFiscal::#paginas#cadastro#cadastro-fiscal.xhtml"
+    NAME="output" PATH="/paginas/cadastro/cadastro-fiscal.xhtml"
+    TARGET="rules:#paginas#cadastro#cadastro-fiscal.xhtml"
+    TITLE="cadastroFiscal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cadastroFiscalSucesso::#paginas#cadastro#cadastro-fiscal-sucesso.xhtml"
+    NAME="output1"
+    PATH="/paginas/cadastro/cadastro-fiscal-sucesso.xhtml"
+    TARGET="rules:#paginas#cadastro#cadastro-fiscal-sucesso.xhtml"
+    TITLE="cadastroFiscalSucesso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#cadastro#cadastro-fiscal-sucesso.xhtml"
+  PATH="/paginas/cadastro/cadastro-fiscal-sucesso.xhtml"
+  SHAPE="464,3313,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#inscricao-transferencia.xhtml"
+  PATH="/paginas/inscricao/inscricao-transferencia.xhtml"
+  SHAPE="624,3793,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#inscricao-transferencia.xhtml:0"
+   NAME="item" PATH="/paginas/inscricao/inscricao-transferencia.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#confirmacao-dados-transferencia.xhtml"
+    NAME="output"
+    PATH="/paginas/inscricao/confirmacao-dados-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#confirmacao-dados-transferencia.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+  PATH="/paginas/inscricao/dados-inscricao-transferencia.xhtml"
+  SHAPE="624,4353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#dados-inscricao-transferencia.xhtml:0"
+   NAME="item"
+   PATH="/paginas/inscricao/dados-inscricao-transferencia.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-transferencia.xhtml"
+    NAME="output"
+    PATH="/paginas/inscricao/inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-transferencia.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="cancelarInscricao::#paginas#inscricao#cancelamento-realizado.xhtml"
+    NAME="output1"
+    PATH="/paginas/inscricao/cancelamento-realizado.xhtml"
+    TARGET="rules:#paginas#inscricao#cancelamento-realizado.xhtml"
+    TITLE="cancelarInscricao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="atualizar::#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+    NAME="output2"
+    PATH="/paginas/inscricao/dados-inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#dados-inscricao-transferencia.xhtml"
+    TITLE="atualizar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output3" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#paginas#inscricao#confirmacao-dados-transferencia.xhtml"
+  PATH="/paginas/inscricao/confirmacao-dados-transferencia.xhtml"
+  SHAPE="640,5345,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM
+   ID="rules:#paginas#inscricao#confirmacao-dados-transferencia.xhtml:0"
+   NAME="item"
+   PATH="/paginas/inscricao/confirmacao-dados-transferencia.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="alterar::#paginas#inscricao#inscricao-transferencia.xhtml"
+    NAME="output"
+    PATH="/paginas/inscricao/inscricao-transferencia.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-transferencia.xhtml"
+    TITLE="alterar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="confirmarDados::#paginas#inscricao#inscricao-realizada.xhtml"
+    NAME="output1" PATH="/paginas/inscricao/inscricao-realizada.xhtml"
+    TARGET="rules:#paginas#inscricao#inscricao-realizada.xhtml"
+    TITLE="confirmarDados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="resumoCandidato::#paginas#inscricao#resumo-candidato.xhtml"
+    NAME="output2" PATH="/paginas/inscricao/resumo-candidato.xhtml"
+    TARGET="rules:#paginas#inscricao#resumo-candidato.xhtml"
+    TITLE="resumoCandidato" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

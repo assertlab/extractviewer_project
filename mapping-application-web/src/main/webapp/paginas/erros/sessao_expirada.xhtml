@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core" 
+				xmlns:p="http://primefaces.org/ui"
+				template="/modelos/template.xhtml">
+
+	<ui:define name="title">
+		<h:outputText value="#{msgs.str_erro_sistema}" />
+	</ui:define>
+
+	<ui:define name="content">
+		
+		<h:form>
+			
+			<p:panel styleClass="page-error">
+				
+				<p class="text-center">
+					<h:graphicImage library="images" name="logo-site.png" />
+				</p>
+							
+				<h2>A sua sessão expirou ou os dados da página não são mais válidos. Para sua segurança, você foi desconectado do sistema.</h2>
+				
+				<div>
+					<p>Possíveis motivos:</p>
+					
+					<ol>
+						<li>
+							Você não realizou nenhum comando no sistema por mais que <b style="color: #FF0000;">15 minutos</b>.
+						</li>
+						<li>
+							Você utilizou um dos botões <b style="color: #FF0000;">Atualizar</b> ou <b style="color: #FF0000;">Voltar</b> do navegador.
+						</li>
+						<li>
+							 Você pressionou a tecla <b style="color: #FF0000;">F5</b>.
+						</li>
+					</ol>
+				
+					<p>O que preciso fazer agora?</p>
+					
+					<ol>
+						<li style="color: #FF0000;">
+							Acesse novamente a página do sistema. 
+						</li>
+					</ol>
+					
+                     <p class="text-center bold">EXPID000</p>
+				</div>
+				
+			</p:panel>
+									
+		</h:form>
+		
+	</ui:define>
+
+</ui:composition>

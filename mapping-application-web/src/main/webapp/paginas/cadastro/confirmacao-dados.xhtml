@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	template="/modelos/template.xhtml">
+
+	<ui:define name="title">
+		<h:outputText value="#{msgs.str_confirmacao_dados_cadastrais}" />
+	</ui:define>
+
+	<ui:define name="content">
+
+		<f:view>
+
+			<f:event listener="#{confirmacaoDadosMB.carregarPagina}" type="preRenderView" />
+
+			<h3 class="text-center">
+				<h:outputText value="#{msgs.str_confirmacao_dados_cadastrais}" rendered="#{not confirmacaoDadosMB.alterar}"/>
+				<h:outputText value="#{msgs.str_confirmacao_alteracao_dados_cadastrais}" rendered="#{confirmacaoDadosMB.alterar}"/>
+			</h3>
+
+			<h:form id="form-confirmacao-dados-cadastrais" prependId="false">
+
+				<p:messages showDetail="true" showSummary="false" id="mensagens" />
+
+				<p:fieldset legend="#{msgs.str_dados_pessoais}" styleClass="container-fieldset" id="dados-pessoais">
+
+					<p:panelGrid styleClass="table-no-borders">
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_nome_completo}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="5">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.nomeCompleto}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_identidade}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.identidade}" converter="identidadeConverter" />
+							</p:column>
+							<p:column>
+								<h:outputLabel value="#{msgs.str_expedicao_rg}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="4">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.dataExpedicaoRg}" converter="localDateConverter" />
+							</p:column>
+						</p:row>
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_orgao_expeditor}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.orgaoExpeditor}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_uf}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.ufOrgaoExpeditor}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_cpf}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.cpf}" converter="cpfConverter" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_data_nascimento}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="4">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.dataNascimento}" converter="localDateConverter" />
+							</p:column>
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_estado_civil}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.estadoCivil}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_sexo}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="3">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.sexo}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_naturalidade}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.naturalidade}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_nacionalidade}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="4">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.nacionalidade}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_nome_pai}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="5">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.nomePai}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_nome_mae}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="5">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.nomeMae}" />
+							</p:column>
+
+						</p:row>
+
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="#{msgs.str_contato}" styleClass="container-fieldset" id="contato">
+
+					<p:panelGrid styleClass="table-no-borders">
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_email}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="6">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.email}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_telefone_fixo}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="3">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.telefoneFixo}" converter="telefoneConverter" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_celular_1}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.numeroCelular01}" converter="telefoneConverter" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_celular_2}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.numeroCelular02}" converter="telefoneConverter" />
+							</p:column>
+
+						</p:row>
+
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="#{msgs.str_endereco}" styleClass="container-fieldset" id="endereco">
+
+					<p:panelGrid styleClass="table-no-borders">
+
+						<p:row>
+
+							<p:column colspan="3">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.logradouro}" />,
+		    					<h:outputText value="#{confirmacaoDadosMB.containerDados.numeroLogradouro}" />
+							</p:column>
+
+							<p:column colspan="2">
+								<h:outputText value="(#{confirmacaoDadosMB.containerDados.complementoLogradouro})" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_bairro}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.bairro}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column>
+								<h:outputText value="#{msgs.str_cidade}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.cidade}" />
+							</p:column>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_uf}" style="font-weight:bold" />
+							</p:column>
+							<p:column>
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.ufCidade}" />
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputText value="#{msgs.str_cep}" style="font-weight:bold" />
+							</p:column>
+							<p:column colspan="5">
+								<h:outputText value="#{confirmacaoDadosMB.containerDados.cep}" converter="cepConverter" />
+							</p:column>
+
+						</p:row>
+
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="#{msgs.str_senha}" styleClass="container-fieldset" id="senha" rendered="#{not confirmacaoDadosMB.alterar}">
+
+					<p:panelGrid styleClass="table-no-borders">
+						<p:row>
+							<p:column>
+								<h:outputText value="#{msgs.str_pergunta_seguranca}" style="font-weight:bold"/>
+							</p:column>
+							
+							<p:column colspan="3">
+								<h:outputText value="#{msgs[confirmacaoDadosMB.containerDados.perguntaSeguranca.descricao]}" />
+							</p:column>
+							
+						</p:row>
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<div class="text-center">
+					<p:commandButton value="#{msgs.str_botao_corrigir_cadastro}" action="#{confirmacaoDadosMB.alterarDados}" 
+						process="@form"	styleClass="margin-left" ajax="false" />
+					
+					<p:commandButton value="#{msgs.str_botao_cancelar_alteracao_cadastro}" action="#{confirmacaoDadosMB.cancelar}" 
+						process="@form"	styleClass="margin-left" ajax="false" rendered="#{confirmacaoDadosMB.alterar}"/>
+
+					<p:commandButton value="#{msgs.str_botao_confirmar_alteracao_cadastro}" action="#{confirmacaoDadosMB.confirmarDados}" 
+						rendered="#{confirmacaoDadosMB.alterar}"
+						process="@form" ajax="false" />
+
+					<p:commandButton value="#{msgs.str_botao_confirmar_inclusao_cadastro}" action="#{confirmacaoDadosMB.confirmarDados}" 
+						rendered="#{not confirmacaoDadosMB.alterar}"
+						process="@form" ajax="false" />
+				</div>
+
+			</h:form>
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>

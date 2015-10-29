@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Dados da Análise" modal="true" position="center"
+		onShow="PF('popupDadosAnalise').initPosition()" dynamic="true"
+		resizable="false" widgetVar="popupDadosAnalise" 
+		closable="false" closeOnEscape="false" maximizable="false" 
+		minimizable="false" styleClass="detalhamento-estudos">
+
+		<h:form id="formDetalhe">
+			<p:messages id="mensagensDetalhe" showDetail="true"
+				showSummary="false" />
+
+			<p:panelGrid cellpadding="5" columns="1" 
+				styleClass="vertical-align:text-top" style="height:99% !important; width:99% !important">
+				<p:row>
+					<p:column colspan="2">
+						<h:outputLabel value="#{analisesMB.containerDados.estudo.titulo}"
+							styleClass="atencao4" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<h:outputLink value="#{analisesMB.containerDados.estudo.arquivo}"
+							onclick="window.open(this.href); return false;">
+							<h:outputText
+								value="#{analisesMB.containerDados.estudo.arquivoReduzido}"
+								style="width:670px;white-space: normal" />
+						</h:outputLink>
+						<h:outputLabel value="[Arquivo não disponível]"
+							rendered="#{empty analisesMB.containerDados.estudo.arquivo}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<h:outputLabel value="[Ano]: " style="font-weight:bold" />
+						<h:outputLabel value="#{analisesMB.containerDados.estudo.ano}"
+							styleClass="atencao5" />
+						<h:outputLabel value="   -   " />
+						<h:outputLabel value="[Autores]: " style="font-weight:bold" />
+						<h:outputLabel value="#{analisesMB.containerDados.estudo.autores}"
+							rendered="#{not empty analisesMB.containerDados.estudo.autores}"
+							styleClass="atencao5" />
+						<h:outputLabel value="N/A"
+							rendered="#{empty analisesMB.containerDados.estudo.autores}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<h:outputLabel value="[Palavras-Chave]: " style="font-weight:bold" />
+						<h:outputLabel
+							value="#{analisesMB.containerDados.estudo.palavrasChave}"
+							rendered="#{not empty analisesMB.containerDados.estudo.palavrasChave}"
+							styleClass="atencao5" />
+						<h:outputLabel value="N/A"
+							rendered="#{empty analisesMB.containerDados.estudo.palavrasChave}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<h:outputLabel value="[Conferência]: "
+							rendered="#{not empty analisesMB.containerDados.estudo.busca.conferencia}"
+							style="font-weight:bold" />
+						<h:outputLabel
+							value="#{analisesMB.containerDados.estudo.busca.conferencia}"
+							rendered="#{not empty analisesMB.containerDados.estudo.busca.conferencia}"
+							styleClass="atencao5" />
+						<h:outputLabel value="   | [Período] " style="font-weight:bold" />
+						<h:outputLabel
+							value="#{analisesMB.containerDados.estudo.busca.inicio}"
+							styleClass="atencao5" />
+						<h:outputLabel value=" a " style="font-weight:bold" />
+						<h:outputLabel
+							value="#{analisesMB.containerDados.estudo.busca.fim}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<h:outputLabel value="[Busca] " style="font-weight:bold" />
+						<h:outputLabel value="Manual "
+							rendered="#{analisesMB.containerDados.estudo.busca.manual}"
+							styleClass="atencao5" />
+						<h:outputLabel value="Automatica"
+							rendered="#{not analisesMB.containerDados.estudo.busca.manual}"
+							styleClass="atencao5" />
+						<h:outputLabel value="   [no Engenho de Busca] "
+							style="font-weight:bold" />
+						<h:outputLabel
+							value="#{analisesMB.containerDados.estudo.busca.base.nome}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<p:inputTextarea rows="8" cols="93"
+							value="#{analisesMB.containerDados.estudo.resumo}"
+							rendered="#{not empty analisesMB.containerDados.estudo.resumo}"
+							readonly="true" autoResize="false" styleClass="word-wrap: break-word;"/>
+						<h:outputLabel value="Não Disponível"
+							rendered="#{empty analisesMB.containerDados.estudo.resumo}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+
+			</p:panelGrid>
+			<p:panelGrid styleClass="vertical-align:text-top" style="height:99% !important; width:99% !important">
+				<p:row>
+					<p:column width="10%">
+						<h:outputLabel value="Estudo Incluído: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel value="[Sim]"
+							rendered="#{analisesMB.containerDados.incluido}"
+							styleClass="atencao5" />
+
+						<h:outputLabel value="[Não]"
+							rendered="#{not analisesMB.containerDados.incluido}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				
+				<p:row rendered="#{not analisesMB.containerDados.incluido}">
+					<p:column width="10%">
+						<h:outputLabel value="Criterio*: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel
+							value="[#{analisesMB.containerDados.criterio.descricao}]" styleClass="atencao5"/>
+
+						<p:commandButton icon="ui-icon-document"
+							title="Clique para detalhar os dados da análise matriz."
+							rendered="#{not empty analisesMB.containerDados.criterio.descricao and analisesMB.containerDados.criterio.descricao == 'Estudo duplicado.'}"
+							onsuccess="PF('popupDadosAnalise').hide();PF('popupDadosAnaliseMatriz').show()"
+							update="mensagensDetalhe, :formDetalhe, :formDetalheMatriz"
+							process="@form">
+
+							<f:setPropertyActionListener
+								value="#{analisesMB.containerDados.matriz}"
+								target="#{analisesMB.containerDadosMatriz}" />
+
+						</p:commandButton>
+
+						<h:outputLabel value="Critério ainda não aplicado"
+							rendered="#{empty analisesMB.containerDados.criterio.descricao and (empty analisesMB.containerDados.incluido)}"
+							styleClass="atencao5" />
+						
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column width="10%">
+						<h:outputLabel value="Observações: " style="font-weight:bold" />
+					</p:column>
+					<p:column colspan="2">
+						<h:outputText value="#{analisesMB.containerDados.comentario}"
+							rendered="#{not empty analisesMB.containerDados.comentario}" style="white-space: pre-wrap;" styleClass="white-space: pre-wrap;"  />
+						<h:outputText value="N/A"
+							rendered="#{empty analisesMB.containerDados.comentario}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column width="10%">
+						<h:outputLabel value=" Análise Concluida: "
+							style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<h:outputLabel value="#{analisesMB.containerDados.concluido}"
+							converter="boleanoConverter" styleClass="atencao5" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+
+			<p class="text-center" style="height:99% !important; width:99% !important">
+				<p:commandButton value="Fechar"
+					onsuccess="PF('popupDadosAnalise').hide();"
+					update="mensagensDetalhe" process="@form" />
+			</p>
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

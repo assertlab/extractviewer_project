@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Dados da Análise do Estudo" modal="true"
+		onShow="PF('popupAlteraDadosAnalise').initPosition()" dynamic="true"
+		position="center" resizable="false" widgetVar="popupAlteraDadosAnalise"
+		closable="false" closeOnEscape="false" maximizable="false" minimizable="false" 
+		styleClass="detalhamento-estudos">
+
+		<p:ajax event="close"
+			update=":formAlteracao,:formAnalises:tableAnalises" />
+
+		<h:form id="formAlteracao">
+			<p:messages id="mensagensAlteracao" showDetail="true"
+				showSummary="false" />
+		
+			<p:panelGrid cellspacing="5" columns="1" style="height:99% !important; width:99% !important"
+				styleClass="vertical-align:text-top;">
+				<p:row>
+					<!-- 
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.codigo}"
+						styleClass="atencao4" />
+					<h:outputLabel value="   -   " />
+					 -->
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.titulo}"
+						styleClass="atencao4" />
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+
+						<h:outputLink
+							value="#{analisesMB.containerEdicaoDados.estudo.arquivo}"
+							onclick="window.open(this.href); return false;">
+							<h:outputText
+								value="#{analisesMB.containerEdicaoDados.estudo.arquivoReduzido}" />
+						</h:outputLink>
+						<h:outputLabel value="Arquivo não disponível"
+							rendered="#{empty analisesMB.containerEdicaoDados.estudo.arquivo}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<h:outputLabel value="[Ano]: " style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.ano}" styleClass="atencao5"/>
+					<h:outputLabel value="   -   " />
+					<h:outputLabel value="[Autores]: " style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.autores}"
+						rendered="#{not empty analisesMB.containerEdicaoDados.estudo.autores}" 
+						styleClass="atencao5"/>
+					<h:outputLabel value="N/A"
+						rendered="#{empty analisesMB.containerEdicaoDados.estudo.autores}"
+						styleClass="atencao5" />
+
+					<p:spacer height="5" width="50" />
+
+					<p:commandButton icon="ui-icon-pencil"
+						actionListener="#{analisesMB.iniciarEdicaoEstudo}"
+						title="Clique para corrigir os dados do estudo."
+						onsuccess="PF('popupAlteraDadosAnalise').hide();PF('popupDadosEdicaoEstudo').show()"
+						update="mensagensAlteracao, :formDetalhe, :formDetalheMatriz, :formEdicaoEstudo"
+						process="@form" immediate="true">
+
+					</p:commandButton>
+				</p:row>
+				<p:row>
+					<h:outputLabel value="[Palavras-Chave]: " style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.palavrasChave}"
+						rendered="#{not empty analisesMB.containerEdicaoDados.estudo.palavrasChave}" 
+						styleClass="atencao5"/>
+					<h:outputLabel value="N/A"
+						rendered="#{empty analisesMB.containerEdicaoDados.estudo.palavrasChave}"
+						styleClass="atencao5" />
+				</p:row>
+				<p:row>
+					<h:outputLabel value="[Conferência] "
+						rendered="#{not empty analisesMB.containerEdicaoDados.estudo.busca.conferencia}"
+						style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.busca.conferencia}"
+						rendered="#{not empty analisesMB.containerEdicaoDados.estudo.busca.conferencia}"
+						styleClass="atencao5" />
+					<h:outputLabel value="   [Período] " style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.busca.inicio}"
+						styleClass="atencao5" />
+					<h:outputLabel value=" a " style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.busca.fim}"
+						styleClass="atencao5" />
+				</p:row>
+				<p:row>
+					<h:outputLabel value="[Busca] " style="font-weight:bold" />
+					<h:outputLabel value="Manual "
+						rendered="#{analisesMB.containerEdicaoDados.estudo.busca.manual}"
+						styleClass="atencao5" />
+					<h:outputLabel value="Automatica"
+						rendered="#{not analisesMB.containerEdicaoDados.estudo.busca.manual}"
+						styleClass="atencao5" />
+					<h:outputLabel value="  [no Engenho de Busca] "
+						style="font-weight:bold" />
+					<h:outputLabel
+						value="#{analisesMB.containerEdicaoDados.estudo.busca.base.nome}"
+						styleClass="atencao5" />
+				</p:row>
+				<p:row>
+					<p:column colspan="2">
+						<p:inputTextarea rows="7" cols="93"
+							value="#{analisesMB.containerEdicaoDados.estudo.resumo}"
+							rendered="#{not empty analisesMB.containerEdicaoDados.estudo.resumo}"
+							readonly="true" autoResize="false" />
+						<h:outputLabel value="Não Disponível"
+							rendered="#{empty analisesMB.containerEdicaoDados.estudo.resumo}"
+							styleClass="atencao5" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+			<p:panelGrid styleClass="vertical-align:text-top" style="height:99% !important; width:99% !important"
+				id="pnl-edicao-analise"
+				rendered="#{not empty analisesMB.containerEdicaoDados.criterio.descricao and analisesMB.containerEdicaoDados.criterio.descricao == 'Estudo duplicado.'}">
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Apontado como Duplicata do Estudo: "
+							style="font-weight:bold" styleClass="atencao2"
+							rendered="#{not empty analisesMB.containerEdicaoDados.criterio.descricao and analisesMB.containerEdicaoDados.criterio.descricao == 'Estudo duplicado.'}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+
+						<h:outputLabel id="labelEstudoMatriz"
+							value="[#{analisesMB.containerEdicaoDados.matriz.estudo.codigo} - #{analisesMB.containerEdicaoDados.matriz.estudo.titulo}]  "
+							rendered="#{not empty analisesMB.containerEdicaoDados.criterio.descricao and analisesMB.containerEdicaoDados.criterio.descricao == 'Estudo duplicado.'}"
+							styleClass="atencao5" />
+
+						<p:spacer height="5" width="50" />
+
+						<p:commandButton icon="ui-icon-document"
+							title="Clique para detalhar os dados da análise matriz."
+							rendered="#{not empty analisesMB.containerEdicaoDados.criterio.descricao and analisesMB.containerEdicaoDados.criterio.descricao == 'Estudo duplicado.'}"
+							onsuccess="PF('popupAlteraDadosAnalise').hide();PF('popupDadosAnaliseMatriz').show()"
+							update="mensagensAlteracao, :formDetalhe, :formDetalheMatriz, :formEdicaoEstudo"
+							process="@form" styleClass="atencao2" immediate="true">
+
+							<f:setPropertyActionListener
+								value="#{analisesMB.containerEdicaoDados.matriz}"
+								target="#{analisesMB.containerDadosMatriz}" />
+
+						</p:commandButton>
+
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+			<p:panelGrid id="pnlEdicaoCriterioAnalise" style="height:99% !important; width:99% !important"
+				styleClass="vertical-align:text-top">
+				<p:row id="colunaIncluir"
+					rendered="#{not ((analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao))}">
+					<p:column>
+						<h:outputLabel value="Incluir estudo: " style="font-weight:bold" />
+					</p:column>
+					<p:column>
+						<p:selectBooleanCheckbox
+							value="#{analisesMB.containerEdicaoDados.incluido}"
+							disabled="#{(analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao)}">
+							<p:ajax event="change"
+								listener="#{analisesMB.atualizarInclusaoAnalise}"
+								update="pnl-edicao-analise, lblCriterio, select-criterio"
+								global="false" process="@this" partialSubmit="true" />
+						</p:selectBooleanCheckbox>
+					</p:column>
+				</p:row>
+				<p:row id="colunaDescCriterio"
+					rendered="#{(analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao)}">
+					<p:column>
+						<h:outputLabel id="lblDescCriterio" value="Criterio*:"
+							style="font-weight:bold" />
+					</p:column>
+
+					<p:column>
+						<h:outputLabel styleClass="atencao5"
+							value="#{analisesMB.containerEdicaoDados.criterio.descricao}" />
+					</p:column>
+				</p:row>
+				<p:row id="colunaCriterio"
+					rendered="#{not ((analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao))}">
+					<p:column>
+						<h:outputLabel id="lblCriterio" value="Criterio*: "
+							style="font-weight:bold" />
+					</p:column>
+
+					<p:column>
+						<p:selectOneMenu id="select-criterio"
+							value="#{analisesMB.valorCriterioEdicao}" style="width:350px"
+							disabled="#{(not analisesMB.informarMotivo) or analisesMB.containerEdicaoDados.incluido}"
+							immediate="true">
+
+							<p:ajax event="valueChange"
+								listener="#{analisesMB.exibirFiltroBusca}"
+								update="pnlEdicaoCriterioAnalise, :formAlteracao:mensagensAlteracao, rowSelecionaDuplicado"
+								partialSubmit="true" process="@form" />
+
+							<f:selectItem itemLabel="Selecione um critério"
+								itemValue="#{null}" />
+							<f:selectItems value="#{analisesMB.listaCriterios}" />
+						</p:selectOneMenu>
+
+						<p:spacer height="5" width="20" />
+
+						<p:commandButton icon="ui-icon-comment"
+							actionListener="#{analisesMB.inserirTextoConfirmacaoDuplicado}"
+							title="Inserir texto de duplicação confirmada."
+							rendered="#{not empty analisesMB.containerEdicaoDados.criterio.descricao and analisesMB.containerEdicaoDados.criterio.descricao == 'Estudo duplicado.'}"
+							update="pnlEdicaoCriterioAnalise, :formAlteracao:mensagensAlteracao"
+							process="@form" disabled="#{(not analisesMB.informarMotivo)}" />
+
+					</p:column>
+				</p:row>
+				<p:row id="rowSelecionaDuplicado" rendered="#{analisesMB.exibeFiltroBuscaDuplicacao}">
+					<p:column colspan="2">
+						<h:outputLabel value="Selecione a análise duplicada:  "
+							style="font-weight:bold" />
+
+
+						<p:commandButton id="btnExibirBuscaDuplicado"
+							icon="ui-icon-newwin"
+							title="Transformar a análise atual em matriz."
+							rendered="#{analisesMB.exibeFiltroBuscaDuplicacao}"
+							onsuccess="PF('popupAlteraDadosAnalise').hide(); PF('popupBuscaDuplicados').show();"
+							actionListener="#{analisesMB.exibirBuscaDuplicados}"
+							update="mensagensAlteracao, :formDetalhe, :formDetalheMatriz, :formAlteracao"
+							process="@form"
+							disabled="#{(analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao)}" />
+
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Observações: " style="font-weight:bold" />
+					</p:column>
+					<p:column colspan="2">
+
+						<p:inputTextarea rows="8" cols="78"
+							autoResize="false"
+							value="#{analisesMB.containerEdicaoDados.comentario}"
+							disabled="#{(analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao)}" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+
+			<p class="text-center" style="height:99% !important; width:99% !important">
+				<p:commandButton value="Cancelar Edição"
+					actionListener="#{analisesMB.cancelarAlteracao}"
+					onsuccess="PF('popupAlteraDadosAnalise').hide();"
+					update=":formAlteracao, :formAnalises:tableAnalises"
+					process="@form" immediate="true"
+					rendered="#{(empty analisesMB.containerEdicaoDados.concluido) or (not analisesMB.containerEdicaoDados.concluido) or (analisesMB.forcarAlteracao)}" />
+
+				<p:commandButton value="Concluir Análise"
+					actionListener="#{analisesMB.salvarEdicaoAnalise}"
+					update=":formAlteracao, :formAnalises:tableAnalises, :formAlteracao:mensagensAlteracao"
+					process="@form" 
+					rendered="#{(empty analisesMB.containerEdicaoDados.concluido) or (not analisesMB.containerEdicaoDados.concluido) or (analisesMB.forcarAlteracao)}" />
+
+				<p:commandButton value="Cancelar Reedição"
+					actionListener="#{analisesMB.cancelarAlteracao}"
+					onsuccess="PF('popupAlteraDadosAnalise').hide();"
+					update=":formAlteracao,:formAnalises:tableAnalises" process="@form"
+					immediate="true"
+					rendered="#{(analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao)}" />
+
+				<p:commandButton value="Reeditar"
+					actionListener="#{analisesMB.liberarAlteracao}"
+					update=":formAlteracao, :formAnalises:tableAnalises, :formAnalises:mensagensAnalises" process="@form"
+					rendered="#{(analisesMB.containerEdicaoDados.concluido) and (not analisesMB.forcarAlteracao)}" />
+			</p>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

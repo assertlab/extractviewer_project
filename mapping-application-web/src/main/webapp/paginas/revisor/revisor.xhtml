@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	template="/modelos/template.xhtml">
+
+	<ui:define name="title">
+		<h:outputText value="#{msgs.str_tela_revisor_sistema}" />
+	</ui:define>
+
+	<ui:define name="content">
+
+		<f:view>
+
+			<f:event listener="#{revisorMB.carregarPagina}" type="preRenderView" />
+
+
+			<h3 class="text-center">
+				<h:outputLabel value="#{msgs.str_tela_revisor_sistema}" />
+			</h3>
+			
+			<h:form id="formRevisoes" prependId="true">
+				
+				<p:messages showDetail="true" showSummary="false" id="mensagens" />
+				
+				<p:fieldset legend="Etapas de Revisões Alocadas para #{revisorMB.usuarioLogado.nome}" styleClass="margin-top">
+					
+						<p class="atencao">
+							<h:outputLabel value="#{msgs.str_tela_msg_inicial_revisor} #{revisorMB.usuarioLogado.nome}. #{msgs.str_tela_msg_selecao_revisor}" />
+						</p>
+						
+						<p class="atencao">
+							<h:outputLabel value="" />
+						</p>
+						
+						<p:dataTable id="tableRevisoes" var="revisao" value="#{revisorMB.etapas}" rowKey="#{revisao.id}">
+					        
+					        <p:column headerText="Id" width="5%">  
+					            <h:outputText value="#{revisao.id}" />  
+					        </p:column>
+				        
+					        <p:column headerText="Descrição" width="40%">  
+					            <h:outputText value="#{revisao.descricao}" />  
+					        </p:column>
+					        
+					        <p:column headerText="Estudos" >  
+					            <h:outputText value="#{revisao.qtdEstudos}" />  
+					        </p:column>
+				        
+					        <p:column headerText="Incluídos" >  
+					            <h:outputText value="#{revisao.qtdIncluidos}" />  
+					        </p:column>
+				        
+					        <p:column headerText="Excluídos" >  
+					            <h:outputText value="#{revisao.qtdExcluidos}" />  
+					        </p:column>
+				        
+					        <p:column headerText="Prev. Conclusão" >  
+					            <h:outputText value="#{revisao.dataConclusao}" converter="localDateTimeConverter" />  
+					        </p:column>
+				        
+					        <p:column headerText="% Conclusão" >  
+					            <h:outputText value="#{revisao.percentualConclusao}">
+					            	<f:convertNumber pattern="#0.00" />
+					            </h:outputText>  
+					            <h:outputText value="%"/>
+					        </p:column>
+				        
+					        <p:column headerText="Concluida" >  
+					            <h:outputText value="#{revisao.concluida}" converter="boleanoConverter"/>  
+					        </p:column>
+							  
+					         <p:column headerText="" >  
+						    	<p:commandButton id="btnAnalisar" action="#{revisorMB.exibirEstudosAnalise}" icon="ui-icon-pencil"  process="@this"
+						    		title="Analisar">
+						    		<f:setPropertyActionListener target="#{revisorMB.containerDados}" value="#{revisao}"/>
+						    	</p:commandButton>	
+					        </p:column>
+					        
+				        </p:dataTable>
+				</p:fieldset>
+			</h:form>
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>

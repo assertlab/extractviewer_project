@@ -1,0 +1,114 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Quantitativo de Estudos por Ano" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasEstudosAno').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasEstudosAno" closable="true"
+		maximizable="false" minimizable="false" minWidth="530" width="530"
+		minHeight="530" height="530" closeOnEscape="true">
+
+		<h:form id="formEstatisticasEstudosAno">
+
+			<p:messages id="mensagensEstatisticasEstudosAno" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:pieChart id="pizzaEstudosAno"
+					value="#{analisesMB.estatisticasEstudosAno}" legendPosition="w"
+					title="Estatistica de Quantitativo de Estudos por Ano"
+					style="width:500px;height:500px" sliceMargin="5"
+					showDataLabels="true" />
+			</h:panelGrid>
+
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="Quantitativo de Estudos Incluídos por Ano" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasEstudosIncluidosAno').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasEstudosIncluidosAno" closable="true"
+		maximizable="false" minimizable="false" minWidth="530" width="530"
+		minHeight="530" height="530" closeOnEscape="true">
+
+		<h:form id="formEstatisticasEstudosIncluidos">
+
+			<p:messages id="mensagensEstatisticasEstudosIncluidosAno" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:pieChart id="pizzaEstudosIncluidosAno"
+					value="#{analisesMB.estatisticasAnaliseEstudosIncluidosAno}" legendPosition="w"
+					title="Estatistica de Quantitativo de Estudos Incluídos por Ano"
+					style="width:500px;height:500px" sliceMargin="5"
+					showDataLabels="true" />
+			</h:panelGrid>
+
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="Quantitativo de Estudos Excluídos por Ano" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasEstudosExcluidosAno').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasEstudosExcluidosAno" closable="true"
+		maximizable="false" minimizable="false" minWidth="530" width="530"
+		minHeight="530" height="530" closeOnEscape="true">
+
+		<h:form id="formEstatisticasEstudosExcluidos">
+
+			<p:messages id="mensagensEstatisticasEstudosExcluidosAno" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:pieChart id="pizzaEstudosExcluidosAno"
+					value="#{analisesMB.estatisticasAnaliseEstudosExcluidosAno}" legendPosition="w"
+					title="Estatistica de Quantitativo de Estudos Excluídos por Ano"
+					style="width:500px;height:500px" sliceMargin="5"
+					showDataLabels="true" />
+			</h:panelGrid>
+
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="Ranking de Autores Incluídos" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasAutoresIncluidos').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasAutoresIncluidos" closable="true"
+		maximizable="false" minimizable="false" minWidth="530" width="530"
+		minHeight="530" height="530" closeOnEscape="true">
+
+		<h:form id="formEstatisticasAutoresIncluidos">
+
+			<p:messages id="mensagensEstatisticasAutoresIncluidos" showDetail="true"
+				showSummary="false" />
+
+			<p:dataList
+				value="#{analisesMB.autoresIncluidos}"
+				var="autor" type="ordered"
+				style="width:340px; overflow:auto; max-height:400px;">
+
+				<h:outputText value="#{autor.autor} => " styleClass="bold" />
+
+				<h:outputText value="#{autor.quantidade} "
+					styleClass="atencao5" />
+
+			</p:dataList>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

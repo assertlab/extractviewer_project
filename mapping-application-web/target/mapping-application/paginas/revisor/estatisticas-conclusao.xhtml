@@ -1,0 +1,171 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Estatísticas de Exclusão" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasCategorias').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasCategorias" closable="true"
+		maximizable="false" minimizable="false" minWidth="530" width="530"
+		minHeight="530" height="530" closeOnEscape="true">
+
+		<h:form id="formEstatisticasCategoria">
+
+			<p:messages id="mensagensEstatisticasCategorias" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:pieChart id="pizzaCategorias"
+					value="#{analisesMB.estatisticasCategorias}" legendPosition="s"
+					title="Estatistica de Aplicação dos Critérios de Exclusão"
+					style="width:500px;height:500px" sliceMargin="5"
+					showDataLabels="true" />
+			</h:panelGrid>
+
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="Estatísticas de Conclusão" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasConclusao').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasConclusao" closable="true"
+		maximizable="false" minimizable="false" minWidth="480" width="480"
+		minHeight="470" height="470" closeOnEscape="true">
+
+		<h:form id="formEstatisticasConclusao">
+
+			<p:messages id="mensagensEstatisticasConclusao" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:pieChart id="pizzaConclusao"
+					value="#{analisesMB.estatisticasQuantitativos}" legendPosition="s"
+					title="Estatística de Conclusão das Análises"
+					style="width:450px;height:450px" sliceMargin="5"
+					showDataLabels="true" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="Estatísticas de Esforço" modal="true" dynamic="true"
+		position="center" resizable="true"
+		onShow="PF('popupEstatisticasEsforco').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasEsforco" closable="true"
+		maximizable="false" minimizable="false" minWidth="720" width="720"
+		minHeight="480" height="480" closeOnEscape="true">
+
+		<h:form id="formEstatisticasEsforco">
+
+			<p:messages id="mensagensEstatisticasEsforco" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:lineChart id="chartEsforco"
+					value="#{analisesMB.estatisticasDashBoard}" legendPosition="w"
+					title="Planejado vs Realizado" style="width:690px;height:450px"
+					sliceMargin="5" showDataLabels="true" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</p:dialog>
+
+
+	<p:dialog header="Estatísticas da Etapa de Revisão" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupEstatisticasEsforcoConclusao').initPosition()"
+		showEffect="clip" hideEffect="fold"
+		widgetVar="popupEstatisticasEsforcoConclusao" closable="true"
+		maximizable="false" minimizable="false" minWidth="410" width="410"
+		closeOnEscape="true">
+
+		<h:form id="formEstatisticasEsforcoConclusao">
+
+			<p:messages id="mensagensEstatisticasEsforcoConclusao"
+				showDetail="true" showSummary="false" />
+
+			<h:panelGrid columns="2"
+				style="width:380px; overflow:auto; max-height:400px;">
+
+				<h:outputText value="# Total de Estudos:" styleClass="atencao5" />
+				<h:outputText value="#{analisesMB.estatisticaEtapaRevisao.qtdTotal}"
+					styleClass="atencao2" />
+
+				<h:outputText value="# Concluídos:" styleClass="atencao5" />
+				<h:outputText
+					value="#{analisesMB.estatisticaEtapaRevisao.qtdConcluidos}"
+					styleClass="atencao2" />
+
+				<h:outputText value="# Incluídos:" styleClass="atencao5" />
+				<h:outputText
+					value="#{analisesMB.estatisticaEtapaRevisao.qtdIncluidos}"
+					styleClass="atencao2" />
+
+				<h:outputText value="# Excluídos:" styleClass="atencao5" />
+				<h:outputText
+					value="#{analisesMB.estatisticaEtapaRevisao.qtdExcluidos}"
+					styleClass="atencao2" />
+
+				<h:outputText value="% Conclusão:" styleClass="atencao5" />
+
+				<h:outputText
+					value="#{analisesMB.estatisticaEtapaRevisao.percConclusao}"
+					styleClass="atencao2">
+					<f:convertNumber pattern="#0.00" />
+				</h:outputText>
+
+				<!-- 
+				<h:outputText value="Concluídos do Dia:" />
+				<h:outputText
+					value="#{analisesMB.estatisticaEtapaRevisao.velocidadeDia.concluidos}" />
+
+				<h:outputText value="Velocidade do Dia:" />
+				<h:outputText
+					value="#{analisesMB.estatisticaEtapaRevisao.velocidadeDia.velocidade} (analises/h)" />
+				 -->
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="1"
+				style="width:340px; overflow:auto; max-height:400px;">
+
+				<h:outputText value="[Histórico de Velocidades]"
+					styleClass="atencao5" />
+
+			</h:panelGrid>
+
+			<p:dataList
+				value="#{analisesMB.estatisticaEtapaRevisao.historicoVelocidade}"
+				var="historico" type="unordered"
+				style="width:340px; overflow:auto; max-height:400px;">
+
+				<h:outputText value="Dia #{historico.data} => " styleClass="bold" />
+
+				<h:outputText
+					value="#{historico.velocidade}"
+					styleClass="atencao2">
+					<f:convertNumber pattern="#0.00" />
+				</h:outputText>
+
+				<h:outputText value=" (analises/minuto)  - "
+					styleClass="atencao2" />
+
+				<h:outputText value="[#{historico.concluidos} conc.]"
+					styleClass="atencao5" />
+
+			</p:dataList>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

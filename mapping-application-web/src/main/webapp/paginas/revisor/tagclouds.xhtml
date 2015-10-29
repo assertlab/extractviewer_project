@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="TagCloud Incluídos" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupTagcloudIncluidos').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupTagcloudIncluidos" closable="true"
+		maximizable="false" minimizable="false" minWidth="720" width="720"
+		closeOnEscape="true">
+
+		<h:form id="formTagcloudIncluidos">
+
+			<p:messages id="mensagensTagcloudIncluidos" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:tagCloud id="tagcloudIncluidos"
+					model="#{analisesMB.tagcloudIncluidos}" style="width:690px; overflow:auto; max-height:530px;" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="TagCloud Excluídos" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupTagcloudExcluidos').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupTagcloudExcluidos" closable="true"
+		maximizable="false" minimizable="false" minWidth="720" width="720"
+		closeOnEscape="true">
+
+		<h:form id="formTagcloudExcluidos">
+
+			<p:messages id="mensagensTagcloudExcluidos" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:tagCloud id="tagcloudExcluidos"
+					model="#{analisesMB.tagcloudExcluidos}" style="width:690px; overflow:auto; max-height:530px;" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</p:dialog>
+
+	<p:dialog header="TagCloud Geral" modal="true"
+		dynamic="true" position="center" resizable="true"
+		onShow="PF('popupTagcloudGeral').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupTagcloudGeral" closable="true"
+		maximizable="false" minimizable="false" minWidth="720" width="720"
+		closeOnEscape="true">
+
+		<h:form id="formTagcloudGeral">
+
+			<p:messages id="mensagensTagcloudGeral" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid>
+				<p:tagCloud id="tagcloudGeral"
+					model="#{analisesMB.tagcloudGeral}" style="width:690px; overflow:auto; max-height:530px;" />
+			</h:panelGrid>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

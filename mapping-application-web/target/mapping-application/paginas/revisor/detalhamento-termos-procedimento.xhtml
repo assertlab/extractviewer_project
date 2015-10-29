@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Glossário de Termos" modal="true" dynamic="true"
+		position="center" resizable="true"
+		onShow="PF('popupGlossario').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupGlossario" closable="false"
+		maximizable="false" minimizable="false"
+		style="width:35% !important; overflow:auto;" closeOnEscape="false">
+
+
+		<h:form id="formGlossario">
+			<p:messages id="mensagensGlossario" showDetail="true"
+				showSummary="false" />
+
+			<h:panelGrid cellpadding="5" columns="1"
+				styleClass="table-no-borders">
+				<p:row>
+					<h:outputLabel
+						value="Definição Operacional de Experimento Controlado (Wohlin):"
+						styleClass="atencao4" />
+					<h:outputLabel
+						value="Experimento Controlado é o estudo empírico que manipula um FATOR ou VARIÁVEL de um AMBIENTE CONTROLADO em análise. 
+						INDIVÍDUOS aplicam ALEATÓRIAMENTE TRATAMENTOS em uma ou mais variáveis, e MEDEM e ANALISAM ESTATISTICAMENTE os efeitos da manipulação sobre as demais."
+						styleClass="atencao4" />
+				</p:row>
+				<p:row>
+					<h:outputLabel
+						value="Definição Operacional de Quasi-Experimento (Wohlin):"
+						styleClass="atencao4" />
+					<h:outputLabel
+						value="Um Quasi-Experimento é SIMILAR a um EXPERIMENTO CONTROLADO, a diferença está no fato de que os TRATAMENTOS aplicados NÃO POEM SER RANDOMIZADOS, 
+						mas emergem das características dos indivíduos ou dos objetos em si."
+						styleClass="atencao4" />
+				</p:row>
+				<p:row>
+					<h:outputLabel
+						value="Definição Operacional de Computação em Nuvem (NIST):"
+						styleClass="atencao4" />
+					<h:outputLabel
+						value="Computação em nuvem é um modelo que permite o acesso conveniente a uma rede ubíqua e sob demanda, de um pool compartilhado de recursos computacionais 
+						configuráveis. Os recursos devem ser rapidamente provisionados e liberados mediante um esforço mínimo de gerenciamento ou iteração com o provedor de recursos. 
+						O modelo possui cinco características essenciais, três modelos de serviço e quatro de implementação. "
+						styleClass="atencao4" />
+				</p:row>
+			</p:panelGrid>
+
+			<p class="text-center">
+				<p:commandButton value="Fechar Glossário"
+					actionListener="#{analisesMB.exibirFiltroBusca}"
+					onsuccess="PF('popupDadosAnaliseMatriz').hide();PF('popupAlteraDadosAnalise').show();"
+					update=":formAlteracao:pnlEdicaoCriterioAnalise, :formAlteracao:mensagensAlteracao"
+					process="@form"
+					rendered="#{(not empty analisesMB.emEdicao) and analisesMB.emEdicao}" />
+			</p>
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

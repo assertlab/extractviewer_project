@@ -1,0 +1,315 @@
+@CHARSET "UTF-8";
+
+html, body {
+	background: #FCFDFD;
+	font-family: calibri, arial, trebuchet ms;
+	font-size: 0.81em;
+	color: #222;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	font-size: 0.9em;	
+	padding-left: 20px;
+}
+
+#logo {
+	padding: 0px 20px 0 10px;
+}	
+
+#globalthemeswitcher {
+	font-size: 1.2em;
+    height: 23px;
+    position: absolute;
+    right: 30px;
+    top: 17px;
+}
+
+#content {
+	width: 1024px;
+	min-height: 768px;
+	margin: 0 auto 30px;
+	padding: 7px;
+	border-top: 0;
+}
+
+#footer {
+	font-size: 0.95em;
+	padding: 0;
+}
+
+#questionario li {
+	margin-bottom: 12px;
+}
+
+#panel-login {
+	width: 50%;
+	margin-top: 50px;
+}
+
+.page-error {
+	width: 500px;
+	margin: 50px auto;
+	padding: 10px;
+}
+
+.page-error span {
+	color: #ededed;
+	font-size: 9em;
+	font-family: calibri, arial, trebuchet ms;
+	margin: 0;
+}
+
+.page-error h2 {
+	font-size: 2em;
+	font-family: calibri, arial, trebuchet ms;
+	text-align: center;
+	margin: 0;
+}
+
+.page-error li {
+	padding: 3px;
+}
+
+.page-error label {
+	font-weight: bold;
+}
+	
+legend {
+	width: 98%;
+	padding: 5px !important;
+	font-family: calibri, arial, trebuchet ms;
+	padding-left: 10px !important;	
+}
+
+h3 {
+	text-align: left !important;
+	font-size: 2em;
+	font-family: trebuchet ms;
+	border-bottom: 1px solid #EDEDED;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+	color: #250764;	
+}
+
+#recaptcha_area{
+	font-family: Arial,sans-serif;
+	text-align: left !important;
+	font-size: 1.2em;
+}
+
+.pergunta-questionario {
+	font-family: Arial,sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+	margin-bottom: 7px;	
+}
+
+.pergunta-informacao {
+	margin: 7px 0;	
+}
+
+.container-fieldset {
+	margin: 10px 0;	
+}
+
+.focus-email {
+	padding:7px;
+	font-weight: bold;	
+}
+
+.big-buttom {
+	width: 130px;
+	height: 130px;	
+}
+
+.table-no-borders tbody tr {
+	border: none;
+}
+
+.table-no-borders tbody tr td {
+	border-style: none;
+}
+
+.ui-button {
+	background: #176096 !important;
+	color: #fff !important;	
+}
+
+.ui-button .ui-button-text {
+	text-shadow: none;
+}
+
+/* UTIL */
+
+.uppercase {
+	text-transform: uppercase !important;	
+}
+
+.bold {
+	font-weight: bold;	
+}
+
+.atendente {
+	font-size: 0.6em;
+	text-align: right;		
+	color: #000050;	
+	float:right
+}
+
+.atencao2 {
+	text-align: left;		
+	color: #0000FF;	
+}
+.atencao4 {
+	font-weight: bold;	
+	font-size:1.2em;
+	text-align: justify;		
+	color: #000000;	
+}
+.justificado {
+	text-align: justify;		
+}
+.atencao5 {
+	font-weight: bold;	
+	color:	#800000	
+}
+
+.atencao3 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: left;		
+	color: #0000FF;	
+}
+
+.atencao {
+	padding-left: 10px;
+	text-align: left;		
+	color: #0000FF;	
+}
+.full-width {
+	width: 100%;	
+}
+
+.full-width-padding {
+	width: 98% !important;	
+}
+
+.padding {
+	padding: 0 7px;	
+}
+
+.margin-left {
+	margin-left: 10px;	
+}
+
+.margin-top {
+	margin-top: 10px;	
+}
+
+.margin-auto {
+	margin: 0 auto;	
+}
+
+.text-center {
+	text-align: center;	
+}
+
+.text-left {
+	text-align: left;	
+}
+
+.text-right {
+	text-align: right;	
+}
+
+.float-left {
+	float: left;	
+}
+
+.float-rigth {
+	float: right;	
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+
+.header-template { 
+	border: 1px solid #ce0000; 
+	background: #a50000 url(#{facesContext.externalContext.requestContextPath}/resources/images/bg-vermelho-quadrados.jpg) 50% 50% repeat-x; 
+	color: #ffffff;
+}
+
+.header-template a { color: #ffffff; }
+
+.linha_footer {
+	width: 100%;
+	height: 1px;
+	background: #EDEDED;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.footer_maior {
+	width: 100%;
+	height: 60px;
+	margin: 0 auto;
+}
+
+.footer {
+	width: 1000px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+.titulo-painel{
+	color: #ffffff; 
+	font-weight: bold;	
+	text-align: left;
+}
+
+.outputScrollText {
+    display: block;
+    width: 600px; /* Optional, depends otherwise on parent. */
+    height: 300px;
+    overflow: auto;
+    color: green;
+}
+
+#edit-study-icon {   
+    width: 16px;   
+    height: 16px;  
+    background-image: url(#{facesContext.externalContext.requestContextPath}/resources/images/editar-estudo.png); 
+}
+
+.detalhamento-estudos{
+	width: 80%  !important;
+    height: 90% !important;
+    min-width: 650px !important;
+    max-width: 700px !important;   
+    min-height: 500px !important;
+    max-height: 600px !important;
+    margin:0 auto !important;
+    overflow:auto !important;
+    overflow-y: scroll !important;
+}

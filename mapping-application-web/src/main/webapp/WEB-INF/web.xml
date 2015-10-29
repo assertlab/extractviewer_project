@@ -1,0 +1,166 @@
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<display-name>CloudMapping</display-name>
+
+	<context-param>
+	    <param-name>facelets.SKIP_COMMENTS</param-name>
+	    <param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+  			/WEB-INF/spring-config.xml
+  			/WEB-INF/spring-security-config.xml
+
+    	</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>primefaces.SKIN</param-name>
+		<param-value>none</param-value>
+	</context-param>
+	
+	<context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>com.sun.faces.validateXml</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>com.sun.faces.verifyObjects</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    
+    <context-param>   
+		<param-name>com.sun.faces.writeStateAtFormEnd</param-name>   
+		<param-value>false</param-value>   
+	</context-param>
+    
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/WEB-INF/faces-config.xml</param-value>
+    </context-param>
+    
+    <context-param>
+      	<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+      	<param-value>6Lcz3dESAAAAAFszCps9YqDcamJ2YZfo0wF6eYyw</param-value>
+   	</context-param>
+   	
+  	<context-param>
+      	<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+      	<param-value>6Lcz3dESAAAAAG8jVVrSSLXZUkzCjzNonbW4sKzp</param-value>
+   	</context-param>
+   	
+   	<context-param>
+	    <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+	    <param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+       <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+       <param-value>true</param-value>
+    </context-param>
+    
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/paginas/erros/404.xhtml</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/paginas/erros/403.xhtml</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/paginas/erros/500.xhtml</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>503</error-code>
+		<location>/paginas/erros/503.xhtml</location>
+	</error-page>
+	
+	<listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>    
+	</listener>
+	
+	<filter>
+        <filter-name>openSessionInViewFilter</filter-name>
+        <filter-class>
+            org.springframework.orm.hibernate4.support.OpenSessionInViewFilter
+        </filter-class>
+        <init-param>
+            <param-name>sessionFactoryBeanName</param-name>
+            <param-value>sessionFactory</param-value>
+        </init-param>
+        <init-param>
+            <param-name>singleSession</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> 
+	</filter>
+	
+	<filter>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+        <filter-name>openSessionInViewFilter</filter-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </filter-mapping>
+    
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>br.ufpe.cin.cloud.mapeamento.web.filter.EncodingFilter</filter-class> 
+	</filter>
+	<filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </filter-mapping>
+	
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+    
+</web-app>

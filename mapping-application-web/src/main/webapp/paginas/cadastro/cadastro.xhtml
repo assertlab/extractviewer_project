@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	template="/modelos/template.xhtml">
+
+	<ui:define name="title">
+		<h:outputText value="#{msgs.str_cadastro_upe}" />
+	</ui:define>
+
+	<ui:define name="content">
+
+		<f:view>
+
+			<f:event listener="#{cadastroUpeMB.carregarPagina}" type="preRenderView" />
+
+			<h3 class="text-center">
+				<h:outputText value="#{msgs.str_cadastro_upe}" rendered="#{not cadastroUpeMB.alterar}"/>
+				<h:outputText value="#{msgs.str_alterar_cadastro}" rendered="#{cadastroUpeMB.alterar}"/>
+			</h3>
+
+
+			<h:form id="form-cadastro-upe" prependId="false">
+
+				<p:messages showDetail="true" showSummary="true" id="mensagens" />
+
+				<p:fieldset legend="#{msgs.str_dados_pessoais}" styleClass="container-fieldset" id="dados-pessoais">
+
+					<p:panelGrid styleClass="table-no-borders">
+						<p:row>
+							<p:column>
+								<h:outputLabel value="#{msgs.str_nome_completo}*" />
+							</p:column>
+							<p:column colspan="6">
+							
+								<p:inputText id="nome" styleClass="full-width-padding" value="#{cadastroUpeMB.containerDados.nomeCompleto}"
+									label="#{msgs.str_nome_completo}" style="text-transform:uppercase" maxlength="150" tabindex="1" 
+									required="true" requiredMessage="#{msgs.cadastroupe_nome_obrigatorio}"/>
+									
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_identidade}*" />
+							</p:column>
+							<p:column>
+							
+								<p:inputText id="identidade" value="#{cadastroUpeMB.containerDados.identidade}" maxlength="30"
+									label="#{msgs.str_identidade}" style="text-transform:uppercase" tabindex="2" 
+									required="true" requiredMessage="#{msgs.cadastroupe_identidade_ajuda}" size="30"/>
+									
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_expedicao_rg}*" />
+							</p:column>
+							<p:column colspan="4">
+							
+								<p:inputMask id="expedicao" value="#{cadastroUpeMB.containerDados.dataExpedicaoRg}" maxlength="10"
+									mask="99/99/9999" label="#{msgs.str_expedicao_rg}" converter="localDateConverter" validatorMessage="#{msgs.cadastroupe_expedicaorg_invalida}"
+									tabindex="3" required="true" requiredMessage="#{msgs.cadastroupe_expedicaorg_ajuda}">
+									
+								</p:inputMask>
+									
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column>
+								<h:outputLabel value="#{msgs.str_orgao_expeditor}*" />
+							</p:column>
+							<p:column>
+							
+								<p:inputMask id="orgaoExpedidor" value="#{cadastroUpeMB.containerDados.orgaoExpeditor}" label="#{msgs.str_orgao_expeditor}" maxlength="10" size="30"
+										mask="a?aaaaaaaaa" style="text-transform:uppercase"  tabindex="4" required="true" requiredMessage="#{msgs.cadastroupe_orgaoexpedidorrg_ajuda}" />
+									
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_uf_rg}*" />
+							</p:column>
+							<p:column>
+								<p:selectOneMenu id="ufRg" value="#{cadastroUpeMB.containerDados.ufOrgaoExpeditor}" label="#{msgs.str_uf}" tabindex="5" required="true" requiredMessage="#{msgs.cadastroupe_uforgaoexpedidorrg_ajuda}">
+									<f:selectItems value="#{cadastroUpeMB.itensUnidadesFederativas}" />
+								</p:selectOneMenu>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_cpf}*" />
+							</p:column>
+							<p:column>
+								<p:inputMask id="cpf" mask="999.999.999-99" value="#{cadastroUpeMB.containerDados.cpf}" label="#{msgs.str_cpf}" maxlength="14"
+									converter="cpfConverter" tabindex="6" required="true" requiredMessage="#{msgs.cadastroupe_cpf_ajuda}" size="30"
+									disabled="#{cadastroUpeMB.alterar}"/>
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_data_nascimento}*" />
+							</p:column>
+							<p:column colspan="4">
+								<p:inputMask id="dataNascimento" value="#{cadastroUpeMB.containerDados.dataNascimento}" 
+									mask="99/99/9999" label="#{msgs.str_data_nascimento}" converter="localDateConverter" validatorMessage="#{msgs.cadastroupe_datanascimento_invalida}"
+									tabindex="7" required="true" requiredMessage="#{msgs.cadastroupe_datanascimento_ajuda}" maxlength="10">
+									
+								</p:inputMask>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_estado_civil}*" />
+							</p:column>
+							<p:column>
+								<p:selectOneMenu id="estadoCivil" value="#{cadastroUpeMB.containerDados.estadoCivil}" label="#{msgs.str_estado_civil}" tabindex="8" required="true" requiredMessage="#{msgs.cadastroupe_estadocivil_ajuda}">
+									<f:selectItems value="#{cadastroUpeMB.itensEstadoCivil}" />
+								</p:selectOneMenu>
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_sexo}*" />
+							</p:column>
+							<p:column colspan="4">
+								<p:selectOneMenu id="sexo" value="#{cadastroUpeMB.containerDados.sexo}" label="#{msgs.str_sexo}" tabindex="9" required="true" requiredMessage="#{msgs.cadastroupe_sexo_ajuda}">
+									<f:selectItems value="#{cadastroUpeMB.itensSexos}" />
+								</p:selectOneMenu>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_naturalidade}*" />
+							</p:column>
+							<p:column>
+								<p:inputText id="naturalidade" value="#{cadastroUpeMB.containerDados.naturalidade}" label="#{msgs.str_naturalidade}" maxlength="50"
+									style="text-transform:uppercase" tabindex="10" required="true" requiredMessage="#{msgs.cadastroupe_naturalidade_ajuda}" size="30"/>
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_nacionalidade}*" />
+							</p:column>
+							<p:column colspan="4">
+								<p:inputText id="nacionalidade" value="#{cadastroUpeMB.containerDados.nacionalidade}" label="#{msgs.str_nacionalidade}" maxlength="50"
+									style="text-transform:uppercase" tabindex="11" required="true" requiredMessage="#{msgs.cadastroupe_nacionalidade_ajuda}"/>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+							<p:column>
+								<h:outputLabel value="#{msgs.str_nome_mae}*" />
+							</p:column>
+							<p:column colspan="6">
+								<p:inputText id="nomeMae" styleClass="full-width-padding" value="#{cadastroUpeMB.containerDados.nomeMae}" required="true" maxlength="150"
+									label="#{msgs.str_nome_mae}" style="text-transform:uppercase" tabindex="12" requiredMessage="#{msgs.cadastroupe_nomemae_ajuda}"/>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+							<p:column>
+								<h:outputLabel value="#{msgs.str_nome_pai}" />
+							</p:column>
+							<p:column colspan="6">
+								<p:inputText id="nomePai" styleClass="full-width-padding" value="#{cadastroUpeMB.containerDados.nomePai}" maxlength="150"
+									label="#{msgs.str_nome_pai}" style="text-transform:uppercase" tabindex="13"/>
+							</p:column>
+
+						</p:row>
+
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="#{msgs.str_contato}" styleClass="container-fieldset" id="contato">
+
+					<p:panelGrid styleClass="table-no-borders">
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_email}*" />
+							</p:column>
+							<p:column colspan="6">
+							
+								<p:inputText id="email1" styleClass="full-width-padding" value="#{cadastroUpeMB.containerDados.email}"
+									label="#{msgs.str_email}" style="text-transform:uppercase" 
+									tabindex="14" maxlength="80" required="true" 
+									requiredMessage="#{msgs.cadastroupe_email1_ajuda}" 
+									validatorMessage="#{msgs.str_validacao_email1_invalido}" 
+									disabled="#{cadastroUpeMB.alterar}">
+									
+									<f:validator validatorId="emailValidator"/>  
+								</p:inputText>
+								
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_email_confirmacao}*" />
+							</p:column>
+							<p:column colspan="6">
+							
+								<p:inputText id="email2" styleClass="full-width-padding" value="#{cadastroUpeMB.containerDados.emailConfirmacao}"
+									label="#{msgs.str_email_confirmacao}" 
+									style="text-transform:uppercase" tabindex="15"
+									maxlength="80" required="true" 
+									requiredMessage="#{msgs.cadastroupe_email2_ajuda}" 
+									validatorMessage="#{msgs.str_validacao_email2_invalido}" 
+									disabled="#{cadastroUpeMB.alterar}">
+									
+									<f:validator validatorId="emailValidator"/>  
+									
+								</p:inputText>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_telefone_fixo}*" />
+							</p:column>
+							<p:column>
+							
+								<p:inputMask id="telefoneFixo" mask="(99) 9999 9999" value="#{cadastroUpeMB.containerDados.telefoneFixo}"
+									label="#{msgs.str_telefone_fixo}" converter="telefoneConverter" tabindex="16"
+									maxlength="10" required="true" requiredMessage="#{msgs.cadastroupe_telefonefixo_ajuda}"/>
+									
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_celular_1}" />
+							</p:column>
+							<p:column>
+							
+								<p:inputMask id="celular1" mask="(99) 9999 9999" value="#{cadastroUpeMB.containerDados.numeroCelular01}"
+									label="#{msgs.str_celular_1}" converter="telefoneConverter" tabindex="17"
+									maxlength="10" />
+									
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_celular_2}" />
+							</p:column>
+							<p:column>
+							
+								<p:inputMask id="celular2" mask="(99) 9999 9999" value="#{cadastroUpeMB.containerDados.numeroCelular02}"
+									label="#{msgs.str_celular_2}" converter="telefoneConverter" tabindex="18"
+									maxlength="10" />
+									
+							</p:column>
+
+						</p:row>
+
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="#{msgs.str_endereco}" styleClass="container-fieldset" id="endereco">
+					
+					<p:messages showDetail="true" showSummary="false" id="mensagensCep" />
+					
+					<p:panelGrid styleClass="table-no-borders">
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_cep}*" />
+							</p:column>
+							<p:column>
+							
+								<p:inputMask id="inputCep" mask="99.999-999" value="#{cadastroUpeMB.containerDados.cep}" label="#{msgs.str_cep}"
+									converter="cepConverter" onkeypress="preencheuCep('inputCep', 'btnBuscarCep')" tabindex="19"
+									maxlength="8" required="true" requiredMessage="#{msgs.cadastroupe_cep_ajuda}"/>
+									
+							</p:column>
+							<p:column>
+								<p:commandButton id="btnBuscarCep" value="#{msgs.str_buscar}" actionListener="#{cadastroUpeMB.buscarCep}"
+									disabled="false" update="mensagensCep, logradouro, bairro, cidade, ufCidade" process="@this,inputCep" tabindex="20">
+									
+								</p:commandButton>
+									
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_logradouro}*" />
+							</p:column>
+							<p:column colspan="6">
+								<p:inputText id="logradouro" styleClass="full-width-padding" value="#{cadastroUpeMB.containerDados.logradouro}"
+									label="#{msgs.str_logradouro}" style="text-transform:uppercase" tabindex="21"
+									maxlength="200" required="true" requiredMessage="#{msgs.cadastroupe_logradouro_ajuda}"/>
+									
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+							<p:column>
+								<h:outputLabel value="#{msgs.str_numero}*" />
+							</p:column>
+							<p:column>
+								<p:inputText id="numero" value="#{cadastroUpeMB.containerDados.numeroLogradouro}" label="#{msgs.str_numero}"
+									style="text-transform:uppercase" tabindex="22"
+									maxlength="10" required="true" requiredMessage="#{msgs.cadastroupe_numero_ajuda}"/>
+							</p:column>
+							
+							<p:column>
+								<h:outputLabel value="#{msgs.str_complemento}" />
+							</p:column>
+							<p:column>
+								<p:inputText id="complemento" value="#{cadastroUpeMB.containerDados.complementoLogradouro}" label="#{msgs.str_complemento}"
+									style="text-transform:uppercase" tabindex="23" maxlength="50"/>
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_bairro}*" />
+							</p:column>
+							<p:column>
+								<p:inputText id="bairro" value="#{cadastroUpeMB.containerDados.bairro}" label="#{msgs.str_bairro}"
+									style="text-transform:uppercase" tabindex="24"
+									maxlength="50" required="true" requiredMessage="#{msgs.cadastroupe_bairro_ajuda}"/>
+							</p:column>
+
+						</p:row>
+
+						<p:row>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_cidade}*" />
+							</p:column>
+							<p:column>
+							
+								<p:inputText id="cidade" value="#{cadastroUpeMB.containerDados.cidade}" label="#{msgs.str_cidade}"
+									style="text-transform:uppercase" tabindex="25"
+									maxlength="100" required="true" requiredMessage="#{msgs.cadastroupe_cidade_ajuda}"/>
+									
+							</p:column>
+
+							<p:column>
+								<h:outputLabel value="#{msgs.str_uf}*" />
+							</p:column>
+							<p:column>
+							
+								<p:inputText id="ufCidade" value="#{cadastroUpeMB.containerDados.ufCidade}" label="#{msgs.str_uf}"
+									style="text-transform:uppercase" tabindex="26"
+									maxlength="2" required="true" requiredMessage="#{msgs.cadastroupe_uf_ajuda}"/>
+									
+							</p:column>
+
+						</p:row>
+
+					</p:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="#{msgs.str_senha}" styleClass="container-fieldset" id="senha" rendered="#{not cadastroUpeMB.alterar}">
+					<p:panelGrid styleClass="table-no-borders">
+						<p:row>
+							<p:column>
+								<h:outputLabel for="senha1" value="#{msgs.str_senha}*" />
+							</p:column>
+							<p:column>
+								<p:password id="senha1" match="senha2" label="#{msgs.str_senha}" 
+											promptLabel="${msgs.cadastroupe_senha_ajuda}" 
+											weakLabel="#{msgs.cadastroupe_senhafraca_ajuda}" 
+											goodLabel="#{msgs.cadastroupe_senhaboa_ajuda}" 
+											strongLabel="#{msgs.cadastroupe_senhaforte_ajuda}" 
+											validatorMessage="#{msgs.str_validacao_senha}" tabindex="27"
+											requiredMessage="#{msgs.login_senha1_obrigatorio}"
+											required="true" 
+											maxlength="10">
+								
+									<f:validateLength maximum="10" minimum="6"/>
+									
+								</p:password>
+								
+								
+								
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column>
+								<h:outputLabel for="senha2" value="#{msgs.str_confirmacao_senha}*" />
+							</p:column>
+							<p:column>
+								<p:password id="senha2" value="#{cadastroUpeMB.containerDados.senha}" 
+											label="#{msgs.str_confirmacao_senha}" required="true" 
+											promptLabel="Informe uma senha" 
+											weakLabel="#{msgs.cadastroupe_senhafraca_ajuda}" 
+											goodLabel="#{msgs.cadastroupe_senhaboa_ajuda}" 
+											strongLabel="#{msgs.cadastroupe_senhaforte_ajuda}" 
+											requiredMessage="#{msgs.login_senha2_obrigatorio}"
+											tabindex="28"
+											maxlength="10">
+											
+									<f:validateLength maximum="10" minimum="6"/>
+									
+								</p:password>
+							</p:column>
+						</p:row>
+						
+						<p:row>
+							<p:column>
+								<h:outputLabel for="perguntaSeguranca" value="#{msgs.str_pergunta_seguranca}*" />
+							</p:column>
+							
+							<p:column>
+								<p:selectOneMenu id="perguntaSeguranca" value="#{cadastroUpeMB.containerDados.perguntaSeguranca}" 
+												 label="#{msgs.str_pergunta_seguranca}" tabindex="29" required="true" 
+												 requiredMessage="#{msgs.cadastroupe_pergunta_seguranca_ajuda}">
+												 
+									<f:selectItems value="#{cadastroUpeMB.itensPerguntaSeguranca}" />
+								</p:selectOneMenu>
+							</p:column>
+						</p:row>
+						
+						<p:row>
+							<p:column>
+								<h:outputLabel for="respostaPerguntaSeguranca" value="#{msgs.str_resposta_pergunta_seguranca}*" />
+							</p:column>
+							
+							<p:column>
+							
+								<p:inputText id="respostaPerguntaSeguranca" value="#{cadastroUpeMB.containerDados.respostaPergunta}" 
+										     label="#{msgs.str_resposta_pergunta_seguranca}" style="text-transform:uppercase" 
+										     tabindex="30" maxlength="100" required="true" 
+										     requiredMessage="#{msgs.cadastroupe_resposta_pergunta_seguranca_ajuda}"/>
+									
+							</p:column>
+						</p:row>
+						
+					</p:panelGrid>
+				</p:fieldset>
+
+				<div class="text-center">
+					<p:commandButton value="#{msgs.str_botao_cancelar_inclusao_cadastro}" action="#{cadastroUpeMB.cancelar}" 
+						styleClass="margin-left" ajax="false" rendered="#{not cadastroUpeMB.alterar}" immediate="true"/>
+						
+					<p:commandButton value="#{msgs.str_botao_cancelar_alteracao_cadastro}" action="#{cadastroUpeMB.cancelar}" 
+						process="@form"	styleClass="margin-left" ajax="false" rendered="#{cadastroUpeMB.alterar}" immediate="true"/>
+					
+					<p:commandButton value="#{msgs.str_botao_confirmar_inclusao_cadastro}" action="#{cadastroUpeMB.avancarQuestionario}" update="mensagens"
+						rendered="#{not cadastroUpeMB.alterar}"
+						tabindex="31"/>
+						
+					<p:commandButton value="#{msgs.str_botao_confirmar_alteracao_cadastro}" action="#{cadastroUpeMB.avancarQuestionario}" update="mensagens"
+						rendered="#{cadastroUpeMB.alterar}"
+						tabindex="31"/>
+				</div>
+
+			</h:form>
+
+		</f:view>
+
+	</ui:define>
+
+</ui:composition>

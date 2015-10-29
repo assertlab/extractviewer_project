@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		
+		<title>
+			#{msgs.str_nome_sistema} - <ui:insert name="title" />
+		</title>
+		<h:outputStylesheet library="css" name="skin.css" />
+		<h:outputStylesheet library="css" name="layout.css" />
+		<h:outputScript library="js" name="primefaces-locale.js"/>
+		<h:outputScript library="js" name="cloudmapping-util.js"/>
+		
+		<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.ico"/>
+		
+		<ui:insert name="includes" />
+		
+		
+	</h:head>
+	
+	<f:loadBundle var="msgs" basename="MessageBundle" />
+
+	<h:body>
+	
+		<div id="header" class="ui-widget header-template">
+			
+			<span id="logo" class="float-left">
+				<h:graphicImage name="dev7logo.png" library="images" />
+			</span>
+		
+			<h2>#{msgs.str_nome_sistema}</h2>
+			
+			<div align="right">			
+				<h:outputLink value="#{request.contextPath}/j_spring_security_logout" id="globalthemeswitcher">
+					<h:outputText value="#{msgs.str_logout_seguranca}" />
+				</h:outputLink>
+			 </div>
+		</div>
+		
+		<div id="content">
+			
+			<div id="breadcrumb">
+				<ui:insert name="breadcrumb" />
+			</div>
+			
+			<p:menubar>
+				<p:submenu label="Seleção">
+					<p:menuitem value="Selecao Inicial"
+						url="" />
+				</p:submenu>
+	        </p:menubar>
+			
+			<ui:insert name="content" />
+		</div>
+		
+		<div id="linha_footer" class="linha_footer"></div>
+			<div id="footer_maior" class="footer_maior">
+		    	<div id="footer" class="footer">
+		    		<h:graphicImage name="footer2.png" library="images" />
+		        </div>
+		    </div>
+		
+		<p:ajaxStatus onstart="ajazStatusVar.show();" onsuccess="ajazStatusVar.hide();" />
+		
+		<p:dialog modal="false" 
+			position="center"
+			widgetVar="ajazStatusVar" 
+			draggable="false" 
+			closable="false" 
+			resizable="false" 
+			hideEffect="fade" 
+			showEffect="fade" 
+			showHeader="false">
+			<h:graphicImage name="ajax-loader.gif" library="images" />
+		</p:dialog>
+		
+	</h:body>
+
+</html>

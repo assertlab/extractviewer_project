@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<!-- fieldsetBusca mensagensBusca-->
+	<p:dialog header="Filtro de Análises" modal="true" dynamic="true"
+		position="center" resizable="true"
+		onShow="PF('popupFiltroAnalises').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupFiltroAnalises" closable="true"
+		maximizable="false" minimizable="false"
+		closeOnEscape="true">
+
+		<p:ajax event="close" update=":formAnalises" />
+
+		<h:form id="formFiltroAnalises">
+
+			<p:messages id="mensagensBusca" showDetail="true" showSummary="false" />
+
+			<p:panelGrid id="pnlFiltroAnalises" styleClass="vertical-align:text-top">
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Id: "
+							title="Informe o identificador do estudo." />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="id"
+							value="#{analisesMB.containerDadosBusca.estudo.id}"
+							maxlength="10" size="5" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Estudo: "
+							title="Informe o título do estudo." />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="titulo"
+							value="#{analisesMB.containerDadosBusca.estudo.titulo}"
+							maxlength="100" size="73" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Ano: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="ano"
+							value="#{analisesMB.containerDadosBusca.estudo.ano}"
+							maxlength="5" size="5" />
+						<p:spacer width="10" />
+						<h:outputLabel value="Autor(es): " />
+						<p:inputText id="autores"
+							value="#{analisesMB.containerDadosBusca.estudo.autores}"
+							maxlength="50" style="text-transform:uppercase" size="50" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Comunidade: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="comunidade" styleClass="full-width-padding"
+							value="#{analisesMB.containerDadosBusca.estudo.busca.comunidade}"
+							style="text-transform:uppercase" maxlength="150" size="10" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Tipo Conferência: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="tipoConferencia" styleClass="full-width-padding"
+							value="#{analisesMB.containerDadosBusca.estudo.busca.tipoConferencia}"
+							style="text-transform:uppercase" maxlength="150" size="10" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Conferência: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="conferencia" styleClass="full-width-padding"
+							value="#{analisesMB.containerDadosBusca.estudo.busca.conferencia}"
+							style="text-transform:uppercase" maxlength="150" size="20" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Base de Dados: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:inputText id="base" styleClass="full-width-padding"
+							value="#{analisesMB.containerDadosBusca.estudo.busca.base.nome}"
+							style="text-transform:uppercase" maxlength="150" size="50" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Incluídos: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:selectOneMenu id="selectIncluidos" required="false"
+							value="#{analisesMB.containerDadosBusca.incluido}"
+							converter="boleanoConverter">
+							<f:selectItems value="#{analisesMB.listaBoleanos}" />
+						</p:selectOneMenu>
+
+						<p:spacer width="10" />
+
+						<h:outputLabel value="Concluídos: " />
+						<p:selectOneMenu id="selectConcluidos" required="false"
+							value="#{analisesMB.containerDadosBusca.concluido}"
+							converter="boleanoConverter">
+							<f:selectItems value="#{analisesMB.listaBoleanos}" />
+						</p:selectOneMenu>
+
+						<p:spacer width="10" />
+
+						<h:outputLabel value="Duplicados: " />
+						<p:selectOneMenu id="selectDuplicados" required="false"
+							value="#{analisesMB.containerDadosBusca.duplicado}">
+							<f:selectItems value="#{analisesMB.listaBoleanos}" />
+
+						</p:selectOneMenu>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column>
+						<h:outputLabel value="Critério: " />
+					</p:column>
+					<p:column colspan="4">
+						<p:selectOneMenu id="selectCriterios" required="false"
+							value="#{analisesMB.criterioBusca}">
+							<f:selectItem itemLabel="Selecione um critério"
+								itemValue="#{null}" />
+							<f:selectItems value="#{analisesMB.listaCriterios}" />
+						</p:selectOneMenu>
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+
+			<div class="text-right">
+				<p:commandButton value="Filtrar"
+					actionListener="#{analisesMB.filtrarEstudos}"
+					oncomplete="PF('popupFiltroAnalises').hide();"
+					update=":formAnalises:tableAnalises, pnlFiltroAnalises, mensagensBusca"
+					imediate="true" />
+					
+				<p:commandButton value="Limpar Filtros"
+					actionListener="#{analisesMB.limparFiltroEstudos}"
+					oncomplete="PF('popupFiltroAnalises').hide();"
+					update=":formAnalises:tableAnalises, pnlFiltroAnalises, mensagensBusca"
+					imediate="true" />
+			</div>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

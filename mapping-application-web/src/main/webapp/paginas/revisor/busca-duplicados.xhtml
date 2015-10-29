@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="Busca de Duplicações" modal="true" dynamic="true"
+		position="center" resizable="true"
+		onShow="PF('popupBuscaDuplicados').initPosition()" showEffect="clip"
+		hideEffect="fold" widgetVar="popupBuscaDuplicados" closable="false"
+		maximizable="false" minimizable="false" minWidth="750" width="750"
+		minHeight="500" height="500" closeOnEscape="false">
+
+		<p:ajax event="close" update=":formAlteracao" />
+
+		<h:form id="formBuscaDuplicados">
+
+			<p:messages id="mensagensBuscaDuplicados" showDetail="true"
+				showSummary="false" />
+
+			<p:fieldset id="fieldsetBuscaDuplicados" legend="Filtro de Busca"
+				styleClass="margin-top">
+
+				<p:panelGrid styleClass="vertical-align:text-top">
+					<p:row>
+						<p:column>
+							<h:outputLabel value="Id Análise: " />
+						</p:column>
+						<p:column>
+							<p:inputText
+								value="#{analisesMB.filtroDuplicado.idAnaliseEstudoDuplicada}"
+								maxlength="5" size="5" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="Código do Estudo: "
+								title="Informe o código do estudo." />
+						</p:column>
+						<p:column>
+							<p:inputText value="#{analisesMB.filtroDuplicado.codEstudo}"
+								maxlength="20" size="10" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column>
+							<h:outputLabel value="Título do Estudo: "
+								title="Informe o título do estudo." />
+						</p:column>
+						<p:column colspan="3">
+							<p:inputText value="#{analisesMB.filtroDuplicado.tituloEstudo}"
+								maxlength="250" size="78" />
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+
+				<div class="text-right">
+
+					<p:commandButton value="Buscar"
+						actionListener="#{analisesMB.buscarAnalisesDuplicadas}"
+						update="tableDuplicados, tableDuplicados" />
+				</div>
+
+			</p:fieldset>
+
+
+			<p:dataTable var="varSelDuplicado"
+				value="#{analisesMB.potDuplicados}" rowKey="#{varSelDuplicado.id}"
+				lazy="true" paginator="true" rows="10" id="tableDuplicados"
+				dynamic="true" rowsPerPageTemplate="10, 15,20,50,100"
+				binding="#{analisesMB.duplicadosDataTable}" selectionMode="single"
+				selection="#{analisesMB.selDuplicado}"
+				emptyMessage="Não foram encontradas análises com os valores de filtro informados.">
+
+				<p:ajax event="rowSelect"
+					listener="#{analisesMB.onRowDuplicadoSelect}"
+					update=":formBuscaDuplicados:btnSelecionarDuplicado" />
+
+				<p:ajax event="rowUnselect"
+					listener="#{analisesMB.onRowDuplicadoUnselect}"
+					update=":formBuscaDuplicados:btnSelecionarDuplicado" />
+
+				<p:column headerText="Analise" width="5%" styleClass="text-center"
+					sortBy="analise.id">
+					<h:outputText value="#{varSelDuplicado.id}" />
+				</p:column>
+
+				<p:column headerText="Cod. Estudo" width="5%" sortBy="estudo.codigo">
+					<h:outputText value="#{varSelDuplicado.estudo.codigo}" />
+				</p:column>
+
+				<p:column headerText="Estudo" sortBy="estudo.titulo">
+					<h:outputText value="#{varSelDuplicado.estudo.titulo}" />
+				</p:column>
+
+				<p:column headerText="Ano" sortBy="estudo.ano" width="5%">
+					<h:outputText value="#{varSelDuplicado.estudo.ano}" />
+				</p:column>
+
+				<p:column headerText="Autores" sortBy="estudo.autores">
+					<h:outputText value="#{varSelDuplicado.estudo.autores}" />
+				</p:column>
+
+			</p:dataTable>
+
+			<div class="text-right">
+				<p:commandButton value="Cancelar"
+					actionListener="#{analisesMB.cancelarBuscaDuplicados}"
+					id="btnCancelarDuplicado" icon="ui-icon-document"
+					title="Clique para cancelar a seleção de análise duplicada"
+					partialSubmit="true"
+					oncomplete="PF('popupBuscaDuplicados').hide(); PF('popupAlteraDadosAnalise').show()"
+					update=":formAlteracao" />
+
+				<p:commandButton id="btnSelecionarDuplicado"
+					value="Selecionar Duplicado"
+					disabled="#{empty analisesMB.selDuplicado}"
+					action="#{analisesMB.finalizarBuscaDuplicados}"
+					oncomplete="PF('popupBuscaDuplicados').hide(); PF('popupAlteraDadosAnalise').show()"
+					update=":formAlteracao" imediate="true" />
+			</div>
+
+		</h:form>
+
+	</p:dialog>
+
+</ui:composition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14090748071360" configfile="/mapping-application-web/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="paginas/erros/404.xhtml" x="338" y="946" id="pf14090750643521" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14090750643532" path="/paginas/erros/404.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="554" y="946" id="pf14090750643543" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf14090750643546 pf140907506435418 pf140907506435419 pf140907512183557 pf14095858701160" inlinks="pf14090750643532 pf140907506435421 pf140907506435422 pf140907506435423" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/erros/403.xhtml" x="338" y="1330" id="pf140907506435424" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf140907506435421" path="/paginas/erros/403.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="370" id="pf140907506435525" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf140907506435526 pf140907506435527" path="/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/erros/500.xhtml" x="338" y="562" id="pf140907506435528" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf140907506435422" inlinks="pf140907506435526" path="/paginas/erros/500.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/erros/sessao_expirada.xhtml" x="338" y="178" id="pf140907506435529" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" inlinks="pf140907506435527" path="/paginas/erros/sessao_expirada.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/cadastro/cadastro-upe.xhtml" x="770" y="1714" id="pf140907506435631" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf140907506435632" inlinks="pf140907506435633 pf140907512183557" path="/paginas/cadastro/cadastro.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/cadastro/confirmacao-codigo-ativacao.xhtml" x="770" y="1330" id="pf140907506435634" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf140907506435635" inlinks="pf14090750643546 pf140907506435636 pf140907506435635" path="/paginas/cadastro/confirmacao-codigo-ativacao.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/cadastro/recuperacao-senha.xhtml" x="770" y="178" id="pf140907506436048" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf140907506435423 pf140907506436049" inlinks="pf140907506435418" path="/paginas/cadastro/recuperacao-senha.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/admin/admin.xhtml" x="770" y="946" id="pf140907506436050" referenceLink="//@navigationRule.4/@navigationCase.3/@toViewId|" inlinks="pf140907506435419" path="/paginas/admin/admin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/cadastro/senha-recuperada.xhtml" x="986" y="178" id="pf140907506436152" referenceLink="//@navigationRule.6/@navigationCase.1/@toViewId|" inlinks="pf140907506436049" path="/paginas/cadastro/senha-recuperada.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/cadastro/confirmacao-dados.xhtml" x="554" y="1714" id="pf140907506436153" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf140907506435636 pf140907506435633" inlinks="pf140907506435632" path="/paginas/cadastro/confirmacao-dados.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1714" id="pf140907506436154" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf140907506436155" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="j_spring_security_logout" x="338" y="1714" id="pf140907506436156" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf140907506436155" path="/j_spring_security_logout"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/revisor/revisor.xhtml" x="770" y="562" id="pf14095858701211" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf14096653521882" inlinks="pf14095858701160" path="/paginas/revisor/revisor.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/revisor/analises.xhtml" x="986" y="562" id="pf14096653521893" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf14096653521882" path="/paginas/revisor/analises.xhtml"/>
+  <links id="pf14090750643532" target="pf14090750643543" source="pf14090750643521" outcome="index" redirect="true"/>
+  <links id="pf140907506435421" target="pf14090750643543" source="pf140907506435424" outcome="index" redirect="true"/>
+  <links id="pf140907506435526" target="pf140907506435528" source="pf140907506435525" outcome="erro500" redirect="true"/>
+  <links id="pf140907506435527" target="pf140907506435529" source="pf140907506435525" outcome="sessaoExpirada" redirect="true"/>
+  <links id="pf140907506435422" target="pf14090750643543" source="pf140907506435528" outcome="index" redirect="true"/>
+  <links id="pf14090750643546" target="pf140907506435634" source="pf14090750643543" outcome="ativacao" redirect="true"/>
+  <links id="pf140907506435418" target="pf140907506436048" source="pf14090750643543" outcome="recuperar-senha" redirect="true"/>
+  <links id="pf140907506435419" target="pf140907506436050" source="pf14090750643543" outcome="admin" redirect="true"/>
+  <links id="pf140907506435423" target="pf14090750643543" source="pf140907506436048" outcome="login" redirect="true"/>
+  <links id="pf140907506436049" target="pf140907506436152" source="pf140907506436048" outcome="recuperacaoSucesso" redirect="true"/>
+  <links id="pf140907506435636" target="pf140907506435634" source="pf140907506436153" outcome="confirmacaoCodigoAtivacao" redirect="true"/>
+  <links id="pf140907506435632" target="pf140907506436153" source="pf140907506435631" outcome="confirmacao" redirect="true"/>
+  <links id="pf140907506435633" target="pf140907506435631" source="pf140907506436153" outcome="alterarDados" redirect="true"/>
+  <links id="pf140907506436155" target="pf140907506436156" source="pf140907506436154" outcome="logout" redirect="true"/>
+  <links id="pf140907512183557" target="pf140907506435631" source="pf14090750643543" outcome="cadastro" redirect="true"/>
+  <links id="pf14095858701160" target="pf14095858701211" source="pf14090750643543" outcome="revisor" redirect="true"/>
+  <links id="pf14096653521882" target="pf14096653521893" source="pf14095858701211" outcome="exibirEstudosAnalise" redirect="true"/>
+  <links id="pf140907506435635" target="pf140907506435634" source="pf140907506435634" outcome="recadastrarEmail" redirect="true">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>
